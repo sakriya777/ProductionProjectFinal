@@ -7,7 +7,7 @@
     android:background="#E9EAEC"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/logoimage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="1.0"
         android:transitionName="logo_image">
 
-    </androidx.appcompat.widget.AppCompatImageView>
+    </ImageView>
 
     <TextView
         android:id="@+id/titletext"
