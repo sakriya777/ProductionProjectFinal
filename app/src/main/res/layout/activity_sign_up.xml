@@ -28,10 +28,12 @@
         android:transitionName="logo_text">
     </TextView>
     <TextView
+        android:id="@+id/signupforawesome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up For Awesome Way to Learn"
-        android:textSize="18sp">
+        android:textSize="18sp"
+        android:transitionName="tag_line">
     </TextView>
 
     <LinearLayout
@@ -40,13 +42,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fname"
             android:hint="First Name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:transitionName="email_box"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -60,7 +64,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/lname"
             android:hint="Last Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:transitionName="password_box"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -72,7 +78,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:hint="Email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:transitionName="forget_password_btn"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -106,23 +114,38 @@
                 android:inputType="textPassword"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
+            android:id="@+id/btnsignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:background="@color/dark_blue"
+            android:onClick="registerUser"
             android:text="Sign Up"
-            android:background="@color/dark_blue">
-        </Button>
+            android:transitionName="sign_in_btn"></Button>
         <Button
+            android:id="@+id/btncallsignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:text="Already Signed Up? Sign In Here"
             android:background="#00000000"
-            android:textColor="@color/black">
+            android:textColor="@color/black"
+            android:transitionName="sign_up_btn">
 
         </Button>
     </LinearLayout>
+    <Button
+        android:id="@+id/withoutsignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Continue Without Sign Up"
+        android:background="#00000000"
+        android:textColor="@color/black">
+    </Button>
 </LinearLayout>

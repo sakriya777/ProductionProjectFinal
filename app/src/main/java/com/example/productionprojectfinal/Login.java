@@ -16,11 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class Login extends AppCompatActivity {
     ImageView image;
-    TextView title;
-    TextInputEditText email, password;
+    TextView title, smalltext;
+    TextInputLayout email, password;
     Button frgtpasswd, signin, callSignup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +35,26 @@ public class Login extends AppCompatActivity {
         }
         title = findViewById(R.id.hellothere);
         image = findViewById(R.id.logoimagesmall);
+        smalltext = findViewById(R.id.signintoocontinue);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        frgtpasswd = findViewById(R.id.btnforgotpassword);
         callSignup = findViewById(R.id.btncallsignup);
+        signin = findViewById(R.id.btnsignin);
+
         callSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Login.this, SignUp.class);
-                Pair[] pairs = new Pair[2];
+                Pair[] pairs = new Pair[8];
                 pairs[0] = new Pair<View,String>(image, "logo_image");
                 pairs[1] = new Pair<View,String>(title, "logo_text");
+                pairs[2] = new Pair<View,String>(smalltext, "tag_line");
+                pairs[3] = new Pair<View,String>(email, "email_box");
+                pairs[4] = new Pair<View,String>(password, "password_box");
+                pairs[5] = new Pair<View,String>(frgtpasswd, "forget_password_btn");
+                pairs[6] = new Pair<View,String>(callSignup, "sign_up_btn");
+                pairs[7] = new Pair<View,String>(signin, "sign_in_btn");
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this,pairs);
                 startActivity(intent, options.toBundle());

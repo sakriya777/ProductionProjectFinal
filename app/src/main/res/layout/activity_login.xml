@@ -32,7 +32,8 @@
         android:layout_height="wrap_content"
         android:text="Sign In to Continue"
         android:textSize="18sp"
-        android:fontFamily="@font/antic">
+        android:fontFamily="@font/antic"
+        android:transitionName="tag_line">
     </TextView>
 
     <LinearLayout
@@ -40,14 +41,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:hint="Email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:transitionName="email_box">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -61,7 +64,8 @@
             android:id="@+id/password"
             android:hint="Password"
             app:passwordToggleEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:transitionName="password_box">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -78,7 +82,9 @@
             android:background="#00000000"
             android:elevation="0dp"
             android:text="Forgot Password"
-            android:textColor="@color/black"></Button>
+            android:textColor="@color/black"
+            android:transitionName="forget_password_btn">
+        </Button>
         <Button
             android:id="@+id/btnsignin"
             android:layout_width="match_parent"
@@ -87,7 +93,8 @@
             android:text="Sign In"
             android:textColor="@color/white"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            android:transitionName="sign_in_btn">
         </Button>
         <Button
             android:id="@+id/btncallsignup"
@@ -97,7 +104,18 @@
             android:textColor="@color/black"
             android:text="New to this app Sign UP"
             android:layout_gravity="right"
-            android:elevation="0dp">
+            android:elevation="0dp"
+            android:transitionName="sign_up_btn">
         </Button>
     </LinearLayout>
+    <Button
+        android:id="@+id/withoutsignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Continue Without Sign Up"
+        android:background="#00000000"
+        android:textColor="@color/black"
+        android:layout_gravity="bottom">
+    </Button>
 </LinearLayout>
