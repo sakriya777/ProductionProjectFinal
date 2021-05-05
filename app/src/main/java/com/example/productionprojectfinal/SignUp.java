@@ -1,5 +1,6 @@
 package com.example.productionprojectfinal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -16,8 +17,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 public class SignUp extends AppCompatActivity {
     ImageView logoimage;
@@ -25,8 +31,10 @@ public class SignUp extends AppCompatActivity {
     TextInputLayout firstname, lastname, email, institution, password;
     Button signup, signincall;
 
+
+    long  id = 0;
     FirebaseDatabase rootNode;
-    DatabaseReference refrence;
+    DatabaseReference refrence, ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +77,31 @@ public class SignUp extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                rootNode = FirebaseDatabase.getInstance();
+                refrence = rootNode.getReference("users");
+                refrence.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+                String fnames = firstname.getEditText().getText().toString();
+                String lnames = lastname.getEditText().getText().toString();
+                String emails = email.getEditText().getText().toString();
+                String instituitions = institution.getEditText().getText().toString();
+                String passwords = password.getEditText().getText().toString();
+
+                UserHelperClass helperClass = new UserHelperClass(fnames, lnames, emails, instituitions, passwords);
+
+
+                refrence.child(String.valueOf(id+1)).setValue(helperClass);
             }
         });
     }
