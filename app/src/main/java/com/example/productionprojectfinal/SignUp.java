@@ -92,6 +92,10 @@ public class SignUp extends AppCompatActivity {
 
                     }
                 });
+
+                if(!validateFirstName() | !validateLastName() | !validateEmail() | !validateInstitution() | !validatePassword()){
+                    return;
+                }
                 String fnames = firstname.getEditText().getText().toString();
                 String lnames = lastname.getEditText().getText().toString();
                 String emails = email.getEditText().getText().toString();
@@ -106,12 +110,88 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    private boolean validateFirstName(){
+        String valfn = firstname.getEditText().getText().toString();
 
-    public void registerUser(View view) {
-        String fnames = firstname.getEditText().getText().toString();
-        String lnames = lastname.getEditText().getText().toString();
-        String emails = email.getEditText().getText().toString();
-        String instituitions = institution.getEditText().getText().toString();
-        String passwords = password.getEditText().getText().toString();
+        if(valfn.isEmpty()){
+            firstname.setError("Field Should not be empty");
+            return false;
+        }
+        else{
+            firstname.setError(null);
+            return true;
+        }
     }
+
+    private boolean validateLastName(){
+        String valln = lastname.getEditText().getText().toString();
+
+        if(valln.isEmpty()){
+            lastname.setError("Field Should not be empty");
+            return false;
+        }
+        else{
+            lastname.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateEmail(){
+        String valem = email.getEditText().getText().toString();
+
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (valem.isEmpty()) {
+            email.setError("Field cannot be empty");
+            return false;
+        } else if (!valem.matches(emailPattern)) {
+            email.setError("Invalid email address");
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateInstitution(){
+        String valin = institution.getEditText().getText().toString();
+
+        if(valin.isEmpty()){
+            institution.setError("Field Should not be empty");
+            return false;
+        }
+        else{
+            institution.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePassword(){
+        String valpw = password.getEditText().getText().toString();
+
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{4,}" +               //at least 4 characters
+                "$";
+
+        if (valpw.isEmpty()) {
+            password.setError("Field cannot be empty");
+            return false;
+        } else if (!valpw.matches(passwordVal)) {
+            password.setError("Password is too weak");
+            return false;
+        } else {
+            password.setError(null);
+            password.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+
 }

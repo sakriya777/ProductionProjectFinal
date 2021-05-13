@@ -61,4 +61,47 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+    private boolean ValidateEmail(){
+        String valem = email.getEditText().getText().toString();
+
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (valem.isEmpty()) {
+            email.setError("Field cannot be empty");
+            return false;
+        } else if (!valem.matches(emailPattern)) {
+            email.setError("Invalid email address");
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validatePassword(){
+        String valpw = password.getEditText().getText().toString();
+
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                //"(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{4,}" +               //at least 4 characters
+                "$";
+
+        if (valpw.isEmpty()) {
+            password.setError("Field cannot be empty");
+            return false;
+        } else if (!valpw.matches(passwordVal)) {
+            password.setError("Password is too weak");
+            return false;
+        } else {
+            password.setError(null);
+            password.setErrorEnabled(false);
+            return true;
+        }
+    }
 }
