@@ -98,7 +98,7 @@ public class SignUp extends AppCompatActivity {
                 }
                 String fnames = firstname.getEditText().getText().toString();
                 String lnames = lastname.getEditText().getText().toString();
-                String emails = email.getEditText().getText().toString();
+                String emails = EncodeString(email.getEditText().getText().toString());
                 String instituitions = institution.getEditText().getText().toString();
                 String passwords = password.getEditText().getText().toString();
 
@@ -109,6 +109,15 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
+
+    public static String EncodeString(String string) {
+        return string.replace(".", ",");
+    }
+
+    public static String DecodeString(String string) {
+        return string.replace(",", ".");
+    }
+
 
     private boolean validateFirstName(){
         String valfn = firstname.getEditText().getText().toString();

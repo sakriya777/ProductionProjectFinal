@@ -43,4 +43,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
     implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.firebaseui:firebase-ui-auth:6.1.0'
 }

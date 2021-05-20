@@ -4,75 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    android:orientation="vertical"
+    android:layout_marginTop="-30dp"
     android:background="@color/pewter"
+    android:orientation="vertical"
     android:padding="20dp"
-    android:layout_marginTop="-30dp">
+    tools:context=".Login">
+
     <ImageView
         android:id="@+id/logoimagesmall"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/logo"
-        android:transitionName="logo_image">
-    </ImageView>
+        android:transitionName="logo_image"></ImageView>
+
     <TextView
         android:id="@+id/hellothere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/dark_blue"
-        android:text="Hello There"
         android:layout_marginTop="-30dp"
-        android:textSize="40sp"
         android:fontFamily="@font/alfa_slab_one"
-        android:transitionName="logo_text">
-    </TextView>
+        android:text="Hello There"
+        android:textColor="@color/dark_blue"
+        android:textSize="40sp"
+        android:transitionName="logo_text"></TextView>
+
     <TextView
         android:id="@+id/signintoocontinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/antic"
         android:text="Sign In to Continue"
         android:textSize="18sp"
-        android:fontFamily="@font/antic"
-        android:transitionName="tag_line">
-    </TextView>
+        android:transitionName="tag_line"></TextView>
 
     <LinearLayout
         android:id="@+id/insidelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email"
             android:hint="Email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:transitionName="email_box">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
             android:hint="Password"
-            app:passwordToggleEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:transitionName="password_box">
+            android:transitionName="password_box"
+            app:errorIconDrawable="@null"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -84,39 +84,40 @@
             android:elevation="0dp"
             android:text="Forgot Password"
             android:textColor="@color/black"
-            android:transitionName="forget_password_btn">
-        </Button>
+            android:transitionName="forget_password_btn"></Button>
+
         <Button
             android:id="@+id/btnsignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:text="Sign In"
-            android:textColor="@color/white"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:transitionName="sign_in_btn">
-        </Button>
+            android:background="@color/black"
+            android:onClick="signinprc"
+            android:text="Sign In"
+            android:textColor="@color/white"
+            android:transitionName="sign_in_btn"></Button>
+
         <Button
             android:id="@+id/btncallsignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:textColor="@color/black"
-            android:text="New to this app Sign UP"
             android:layout_gravity="right"
+            android:background="#00000000"
             android:elevation="0dp"
-            android:transitionName="sign_up_btn">
-        </Button>
+            android:text="New to this app Sign UP"
+            android:textColor="@color/black"
+            android:transitionName="sign_up_btn"></Button>
     </LinearLayout>
+
     <Button
         android:id="@+id/withoutsignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_marginBottom="5dp"
-        android:text="Continue Without Sign Up"
         android:background="#00000000"
-        android:textColor="@color/black"
-        android:layout_gravity="bottom">
-    </Button>
+        android:onClick="withoutsignin"
+        android:text="Continue Without Sign Up"
+        android:textColor="@color/black"></Button>
 </LinearLayout>
