@@ -4,38 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp"
-    android:orientation="vertical"
+    android:layout_marginTop="-30dp"
     android:background="@color/pewter"
+    android:orientation="vertical"
     android:padding="20dp"
-    android:layout_marginTop="-30dp">
+    tools:context=".SignUp">
 
     <ImageView
         android:id="@+id/logoimagesmall"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/logo"
-        android:transitionName="logo_image">
-    </ImageView>
+        android:transitionName="logo_image"></ImageView>
+
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/dark_blue"
-        android:text="Welcome"
         android:layout_marginTop="-30dp"
-        android:textSize="40sp"
         android:fontFamily="@font/alfa_slab_one"
-        android:transitionName="logo_text">
-    </TextView>
+        android:text="Welcome"
+        android:textColor="@color/dark_blue"
+        android:textSize="40sp"
+        android:transitionName="logo_text"></TextView>
+
     <TextView
         android:id="@+id/signupforawesome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up For Awesome Way to Learn"
         android:textSize="18sp"
-        android:transitionName="tag_line">
-    </TextView>
+        android:transitionName="tag_line"></TextView>
 
     <LinearLayout
         android:id="@+id/insidelayout"
@@ -43,86 +42,83 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/fname"
-                android:hint="First Name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:transitionName="email_box"
-                android:layout_weight="1"
-                android:layout_marginRight="5dp"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/lname"
-                android:hint="Last Name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:transitionName="password_box"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                >
+                android:hint="First Name"
+                android:transitionName="email_box">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Last Name"
+                android:transitionName="password_box">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/email"
-            android:hint="Email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:transitionName="forget_password_btn"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:transitionName="forget_password_btn">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/instituition"
-            android:hint="Institution/School"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Institution/School">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Password"
-            app:passwordToggleEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -135,27 +131,28 @@
             android:onClick="registerUser"
             android:text="Sign Up"
             android:transitionName="sign_in_btn"></Button>
+
         <Button
             android:id="@+id/btncallsignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Already Signed Up? Sign In Here"
             android:background="#00000000"
+            android:text="Already Signed Up? Sign In Here"
             android:textColor="@color/black"
             android:transitionName="sign_up_btn">
 
         </Button>
     </LinearLayout>
+
     <Button
         android:id="@+id/withoutsignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:text="Continue Without Sign Up"
         android:background="#00000000"
-        android:textColor="@color/black">
-    </Button>
+        android:text="Continue Without Sign Up"
+        android:textColor="@color/black"></Button>
 </LinearLayout>

@@ -32,9 +32,10 @@ public class SignUp extends AppCompatActivity {
     Button signup, signincall;
 
 
-    long  id = 0;
+    long id = 0;
     FirebaseDatabase rootNode;
     DatabaseReference refrence, ref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,16 +62,16 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignUp.this, Login.class);
                 Pair[] pairs = new Pair[8];
-                pairs[0] = new Pair<View,String>(logoimage, "logo_image");
-                pairs[1] = new Pair<View,String>(title, "logo_text");
-                pairs[2] = new Pair<View,String>(tagline, "tag_line");
-                pairs[3] = new Pair<View,String>(email, "email_box");
-                pairs[4] = new Pair<View,String>(password, "password_box");
-                pairs[5] = new Pair<View,String>(institution, "forget_password_btn");
-                pairs[6] = new Pair<View,String>(signincall, "sign_up_btn");
-                pairs[7] = new Pair<View,String>(signup, "sign_in_btn");
+                pairs[0] = new Pair<View, String>(logoimage, "logo_image");
+                pairs[1] = new Pair<View, String>(title, "logo_text");
+                pairs[2] = new Pair<View, String>(tagline, "tag_line");
+                pairs[3] = new Pair<View, String>(email, "email_box");
+                pairs[4] = new Pair<View, String>(password, "password_box");
+                pairs[5] = new Pair<View, String>(institution, "forget_password_btn");
+                pairs[6] = new Pair<View, String>(signincall, "sign_up_btn");
+                pairs[7] = new Pair<View, String>(signup, "sign_in_btn");
 
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this, pairs);
                 startActivity(intent, options.toBundle());
             }
         });
@@ -82,7 +83,7 @@ public class SignUp extends AppCompatActivity {
                 refrence.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             id = (snapshot.getChildrenCount());
                         }
                     }
@@ -93,7 +94,7 @@ public class SignUp extends AppCompatActivity {
                     }
                 });
 
-                if(!validateFirstName() | !validateLastName() | !validateEmail() | !validateInstitution() | !validatePassword()){
+                if (!validateFirstName() | !validateLastName() | !validateEmail() | !validateInstitution() | !validatePassword()) {
                     return;
                 }
                 String fnames = firstname.getEditText().getText().toString();
@@ -105,7 +106,7 @@ public class SignUp extends AppCompatActivity {
                 UserHelperClass helperClass = new UserHelperClass(fnames, lnames, emails, instituitions, passwords);
 
 
-                refrence.child(String.valueOf(id+1)).setValue(helperClass);
+                refrence.child(String.valueOf(id + 1)).setValue(helperClass);
             }
         });
     }
@@ -119,33 +120,31 @@ public class SignUp extends AppCompatActivity {
     }
 
 
-    private boolean validateFirstName(){
+    private boolean validateFirstName() {
         String valfn = firstname.getEditText().getText().toString();
 
-        if(valfn.isEmpty()){
+        if (valfn.isEmpty()) {
             firstname.setError("Field Should not be empty");
             return false;
-        }
-        else{
+        } else {
             firstname.setError(null);
             return true;
         }
     }
 
-    private boolean validateLastName(){
+    private boolean validateLastName() {
         String valln = lastname.getEditText().getText().toString();
 
-        if(valln.isEmpty()){
+        if (valln.isEmpty()) {
             lastname.setError("Field Should not be empty");
             return false;
-        }
-        else{
+        } else {
             lastname.setError(null);
             return true;
         }
     }
 
-    private boolean validateEmail(){
+    private boolean validateEmail() {
         String valem = email.getEditText().getText().toString();
 
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -163,20 +162,19 @@ public class SignUp extends AppCompatActivity {
         }
     }
 
-    private boolean validateInstitution(){
+    private boolean validateInstitution() {
         String valin = institution.getEditText().getText().toString();
 
-        if(valin.isEmpty()){
+        if (valin.isEmpty()) {
             institution.setError("Field Should not be empty");
             return false;
-        }
-        else{
+        } else {
             institution.setError(null);
             return true;
         }
     }
 
-    private boolean validatePassword(){
+    private boolean validatePassword() {
         String valpw = password.getEditText().getText().toString();
 
         String passwordVal = "^" +

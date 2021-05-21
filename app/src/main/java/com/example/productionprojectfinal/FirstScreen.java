@@ -1,16 +1,20 @@
 package com.example.productionprojectfinal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class FirstScreen extends AppCompatActivity {
+import org.jetbrains.annotations.NotNull;
+
+public class FirstScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
     //Drawer Menu
@@ -31,5 +35,16 @@ public class FirstScreen extends AppCompatActivity {
         //Menu Hooks
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navigation_view);
+
+        //Navigation Drawer
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+        return true;
     }
 }

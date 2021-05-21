@@ -50,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Login.class);
 
                 Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(image, "logo_image");
-                pairs[1] = new Pair<View,String>(title, "logo_text");
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(title, "logo_text");
 
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this,pairs);
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
                 startActivity(intent, options.toBundle());
             }
-        },intro);
+        }, intro);
     }
 }
