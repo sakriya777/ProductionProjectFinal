@@ -14,9 +14,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,21 +32,40 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+
 public class SignUp extends AppCompatActivity {
-    ImageView logoimage;
-    TextView title, tagline;
-    TextInputLayout firstname, lastname, email, institution, password;
-    Button signup, signincall;
+    private ImageView logoimage;
+    private TextView title, tagline;
+    private TextInputLayout firstname, lastname, email, institution, password;
+    private Button signup;
+    private Button signincall, withoutreg;
+    private long id = 0;
+    private FirebaseDatabase rootNode;
+    private DatabaseReference refrence, dbref;
 
+    private ProgressBar prgrsbar;
+    private FirebaseAuth auth;
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        auth = FirebaseAuth.getInstance();
+//        if (auth.getCurrentUser() != null) {
+//            startFirstScreen();
+//        }
+//    }
 
-    long id = 0;
-    FirebaseDatabase rootNode;
-    DatabaseReference refrence, ref;
+    private void startFirstScreen() {
+        startActivity(new Intent(this, FirstScreen.class));
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        //Changing the status bar
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -57,6 +83,18 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.password);
         signup = findViewById(R.id.btnsignup);
         signincall = findViewById(R.id.btncallsignin);
+        prgrsbar = findViewById(R.id.top_progress_bar);
+        withoutreg = findViewById(R.id.withoutsignup);
+
+        withoutreg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+                    startActivity(intent);
+            }
+        });
+
+        //Start Sign in Activity
         signincall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,38 +113,73 @@ public class SignUp extends AppCompatActivity {
                 startActivity(intent, options.toBundle());
             }
         });
+
+        //After user fills the form and clicks the sign in button
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rootNode = FirebaseDatabase.getInstance();
-                refrence = rootNode.getReference("users");
-                refrence.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            id = (snapshot.getChildrenCount());
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                prgrsbar.setVisibility(View.VISIBLE);
+                prgrsbar.setProgress(0);
 
-                    }
-                });
+                auth = FirebaseAuth.getInstance();
+                refrence = FirebaseDatabase.getInstance().getReference();
 
+                //Checking validation of the fields
                 if (!validateFirstName() | !validateLastName() | !validateEmail() | !validateInstitution() | !validatePassword()) {
                     return;
                 }
                 String fnames = firstname.getEditText().getText().toString();
                 String lnames = lastname.getEditText().getText().toString();
-                String emails = EncodeString(email.getEditText().getText().toString());
+                String emails = email.getEditText().getText().toString();
                 String instituitions = institution.getEditText().getText().toString();
                 String passwords = password.getEditText().getText().toString();
 
-                UserHelperClass helperClass = new UserHelperClass(fnames, lnames, emails, instituitions, passwords);
+                auth.createUserWithEmailAndPassword(emails, passwords)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    dbref = refrence.child("users");
+                                    String key = dbref.push().getKey();
+                                    HashMap<String, String> user = new HashMap<>();
+                                    user.put("key", key);
+                                    user.put("lname", lnames);
+                                    user.put("fname", fnames);
+                                    user.put("email", emails);
+                                    user.put("instituion", instituitions);
+
+                                    //Uploading to Database
+                                    dbref.child(key).setValue(user)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
+                                                        startFirstScreen();
+                                                    } else {
+                                                        Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull @NotNull Exception e) {
+                                            Toast.makeText(SignUp.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                } else {
+                                    Toast.makeText(SignUp.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull @NotNull Exception e) {
+                        Toast.makeText(SignUp.this, "Error : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        prgrsbar.setProgress(100);
+                    }
+                });
 
 
-                refrence.child(String.valueOf(id + 1)).setValue(helperClass);
             }
         });
     }

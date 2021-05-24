@@ -118,6 +118,6 @@
         android:layout_marginBottom="5dp"
         android:background="#00000000"
         android:onClick="withoutsignin"
-        android:text="Continue Without Sign Up"
+        android:text="Continue Without Login"
         android:textColor="@color/black"></Button>
 </LinearLayout>

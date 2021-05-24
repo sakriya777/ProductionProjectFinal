@@ -144,6 +144,16 @@
             android:transitionName="sign_up_btn">
 
         </Button>
+        <ProgressBar
+            android:id="@+id/top_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:visibility="gone">
+        </ProgressBar>
     </LinearLayout>
 
     <Button

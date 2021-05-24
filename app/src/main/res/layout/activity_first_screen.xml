@@ -6,8 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pewter"
+    android:fitsSystemWindows="true"
     tools:context=".FirstScreen"
     tools:openDrawer="end">
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
@@ -21,30 +23,43 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="left"
-            android:src="@drawable/menu_rounded_24px">
-        </ImageView>
+            android:layout_margin="8dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="35dp"
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/hello"
-            android:layout_width="58dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="189dp"
-            android:layout_marginTop="281dp"
-            android:layout_marginEnd="165dp"
-            android:layout_marginBottom="431dp"
-            android:text="Welcome"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/card_background_1"></ImageView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="35dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/card_background_2"></ImageView>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
