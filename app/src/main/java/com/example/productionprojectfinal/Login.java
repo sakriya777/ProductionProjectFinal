@@ -2,13 +2,11 @@ package com.example.productionprojectfinal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.Window;
@@ -17,9 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -147,7 +143,7 @@ public class Login extends AppCompatActivity {
                         password.setErrorEnabled(false);
 
                         //String passwordFromDB = snapshot.child(userEnteredEmail).child("password").getValue(String.class);
-                        Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+                        Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
                         intent.putExtra("password", passwordFromDB);
                         startActivity(intent);
 
@@ -168,7 +164,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void withoutsignin(View view) {
-        Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+        Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
         startActivity(intent);
     }
 }

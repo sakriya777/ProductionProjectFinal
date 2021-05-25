@@ -11,7 +11,29 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="Title">Learn It</string>
     <string name="tagline">Learn As You Want</string>
-    
+
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="welcome">Welcome</string>
+    <string name="sign_up_for_awesome_way_to_learn">Sign Up For Awesome Way to Learn</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="institution_school">Institution/School</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_signed_up_sign_in_here">Already Signed Up? Sign In Here</string>
+    <string name="continue_without_sign_up">Continue Without Sign Up</string>
+    <string name="logo">Logo</string>
+    <string name="non_formal_academic">Non-Formal Academic</string>
+    <string name="formal_academic">Formal Academic</string>
+    <string name="hello_there">Hello There</string>
+    <string name="sign_in_to_continue">Sign In to Continue</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_to_this_app_sign_up">New to this app Sign UP</string>
+    <string name="continue_without_login">Continue Without Login</string>
+    <string name="related_picture">related picture</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

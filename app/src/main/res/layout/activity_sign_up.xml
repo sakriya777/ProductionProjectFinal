@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="-30dp"
-    android:background="@color/pewter"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".SignUp">
@@ -15,7 +14,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/logo"
-        android:transitionName="logo_image"></ImageView>
+        android:transitionName="logo_image"
+        android:contentDescription="@string/logo" />
 
     <TextView
         android:id="@+id/welcome"
@@ -23,23 +23,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-30dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Welcome"
+        android:text="@string/welcome"
         android:textColor="@color/dark_blue"
         android:textSize="40sp"
-        android:transitionName="logo_text"></TextView>
+        android:transitionName="logo_text"/>
 
     <TextView
         android:id="@+id/signupforawesome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up For Awesome Way to Learn"
+        android:text="@string/sign_up_for_awesome_way_to_learn"
         android:textSize="18sp"
-        android:transitionName="tag_line"></TextView>
+        android:transitionName="tag_line"/>
 
     <LinearLayout
         android:id="@+id/insidelayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
@@ -48,16 +48,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fname"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:hint="First Name"
+                android:hint="@string/first_name"
                 android:transitionName="email_box">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -72,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Last Name"
+                android:hint="@string/last_name"
                 android:transitionName="password_box">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -86,7 +87,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             android:transitionName="forget_password_btn">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -100,7 +101,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Institution/School">
+            android:hint="@string/institution_school">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -112,7 +113,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -128,9 +129,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@color/dark_blue"
-            android:onClick="registerUser"
-            android:text="Sign Up"
-            android:transitionName="sign_in_btn"></Button>
+            android:text="@string/sign_up"
+            android:transitionName="sign_in_btn"/>
 
         <Button
             android:id="@+id/btncallsignin"
@@ -139,7 +139,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="#00000000"
-            android:text="Already Signed Up? Sign In Here"
+            android:text="@string/already_signed_up_sign_in_here"
             android:textColor="@color/black"
             android:transitionName="sign_up_btn">
 
@@ -163,6 +163,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#00000000"
-        android:text="Continue Without Sign Up"
-        android:textColor="@color/black"></Button>
+        android:text="@string/continue_without_sign_up"
+        android:textColor="@color/black"/>
 </LinearLayout>

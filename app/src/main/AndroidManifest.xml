@@ -2,21 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.productionprojectfinal">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/logo"
+        android:label="@string/Title"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProductionProjectFinal"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FirstScreen"></activity>
+        <activity android:name=".HomeScreen" />
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="@string/Title"
             android:theme="@style/Theme.ProductionProjectFinal.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
@@ -24,11 +23,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -39,7 +35,7 @@ public class SignUp extends AppCompatActivity {
     private TextView title, tagline;
     private TextInputLayout firstname, lastname, email, institution, password;
     private Button signup;
-    private Button signincall, withoutreg;
+    private Button signincall;
     private long id = 0;
     private FirebaseDatabase rootNode;
     private DatabaseReference refrence, dbref;
@@ -56,7 +52,7 @@ public class SignUp extends AppCompatActivity {
 //    }
 
     private void startFirstScreen() {
-        startActivity(new Intent(this, FirstScreen.class));
+        startActivity(new Intent(this, HomeScreen.class));
         finish();
     }
 
@@ -84,12 +80,12 @@ public class SignUp extends AppCompatActivity {
         signup = findViewById(R.id.btnsignup);
         signincall = findViewById(R.id.btncallsignin);
         prgrsbar = findViewById(R.id.top_progress_bar);
-        withoutreg = findViewById(R.id.withoutsignup);
+        Button withoutreg = findViewById(R.id.withoutsignup);
 
         withoutreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+                    Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
                     startActivity(intent);
             }
         });

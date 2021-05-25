@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:background="@color/pewter"
-    android:paddingLeft="25dp">
+    android:paddingStart="25dp"
+    android:paddingEnd="0dp">
 
     <TextView
         android:id="@+id/menu_tagline"
@@ -12,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:text="@string/tagline"
-        android:textColor="@color/dark_blue"></TextView>
+        android:textColor="@color/dark_blue"/>
 
     <TextView
         android:id="@+id/menu_title"
@@ -22,19 +23,21 @@
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/Title"
         android:textColor="@color/dark_blue"
-        android:textSize="24sp"></TextView>
+        android:textSize="24sp"/>
 
     <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_above="@id/menu_title"
-        android:src="@drawable/logo"></ImageView>
+        android:src="@drawable/logo"
+        android:contentDescription="@string/logo" />
 
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="-25dp"
-        android:src="@drawable/realted2"></ImageView>
+        android:layout_marginEnd="-25dp"
+        android:src="@drawable/realted2"
+        android:contentDescription="@string/related_picture" />
 </RelativeLayout>
