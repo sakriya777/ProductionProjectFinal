@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:textColor="@color/dark_blue"
             android:textSize="30dp"
-            android:text="Grade 6 Subjects"
+            android:text="Grade 8 Subjects"
             android:fontFamily="@font/alfa_slab_one"/>
 
         <androidx.cardview.widget.CardView

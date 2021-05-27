@@ -3,10 +3,12 @@ package com.example.productionprojectfinal;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +25,8 @@ public class SchoolFragmentScreen extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Button grade6,grade7,grade8,grade9,grade10,grade11,grade12;
 
     public SchoolFragmentScreen() {
         // Required empty public constructor
@@ -59,6 +63,53 @@ public class SchoolFragmentScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_school_screen, container, false);
+        View v = inflater.inflate(R.layout.fragment_school_screen, container, false);
+
+        grade6 = v.findViewById(R.id.getgrade6);
+
+        grade6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade6Fragment grade6Fragment = new Grade6Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade6Fragment);
+                fm.commit();
+            }
+        });
+        grade7 = v.findViewById(R.id.getgrade7);
+
+        grade7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade7Fragment grade7Fragment = new Grade7Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade7Fragment);
+                fm.commit();
+            }
+        });
+        grade8 = v.findViewById(R.id.getgrade8);
+
+        grade8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade8Fragment grade8Fragment = new Grade8Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade8Fragment);
+                fm.commit();
+            }
+        });
+        grade9 = v.findViewById(R.id.getgrade9);
+
+        grade9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade9Fragment grade9Fragment = new Grade9Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade9Fragment);
+                fm.commit();
+            }
+        });
+
+        return v;
     }
 }
