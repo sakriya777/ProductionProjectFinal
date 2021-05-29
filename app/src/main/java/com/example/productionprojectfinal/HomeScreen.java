@@ -18,6 +18,12 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,6 +33,11 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     NavigationView navigationView;
     Toolbar toolbar;
     FirebaseAuth auth;
+    DatabaseReference myRef;
+    DataSnapshot dataSnapshot;
+    public String role;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String userid = user.getUid();
 
     public void NavigationSetting() {
         if (Build.VERSION.SDK_INT >= 21) {
@@ -66,6 +77,23 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         setContentView(R.layout.activity_home_screen);
         NavigationSetting();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userid = user.getUid();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user");
+        reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for (DataSnapshot datas : dataSnapshot.getChildren()) {
+                    role = datas.child("role").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
         getSupportFragmentManager().beginTransaction().add(R.id.container, new FirstScreenFragment()).commit();
     }
 
@@ -73,8 +101,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer((GravityCompat.START));
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }

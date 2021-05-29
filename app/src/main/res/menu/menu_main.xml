@@ -16,6 +16,12 @@
             android:icon="@drawable/chat_30px"
             android:title="Chat"></item>
         <item
+            android:id="@+id/quiz"
+            android:title="Quizes"></item>
+        <item
+            android:id="@+id/enroll"
+            android:title="Enroll in a Class"></item>
+        <item
             android:id="@+id/school_courses"
             android:icon="@drawable/school_26px"
             android:title="School Courses"></item>

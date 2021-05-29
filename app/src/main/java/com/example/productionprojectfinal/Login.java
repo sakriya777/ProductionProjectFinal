@@ -13,23 +13,28 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
+
 
 public class Login extends AppCompatActivity {
     ImageView image;
     TextView title, smalltext;
     TextInputLayout email, password;
     Button frgtpasswd, signin, callSignup;
+    FirebaseAuth auth;
+    String valem, valpw;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,37 @@ public class Login extends AppCompatActivity {
         frgtpasswd = findViewById(R.id.btnforgotpassword);
         callSignup = findViewById(R.id.btncallsignup);
         signin = findViewById(R.id.btnsignin);
+        progressBar = findViewById(R.id.top_progress_bar);
+        auth = FirebaseAuth.getInstance();
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                valem = email.getEditText().getText().toString();
+                valpw = password.getEditText().getText().toString();
+                if (validateEmail() & validatePassword()) {
+                    auth.signInWithEmailAndPassword(valem, valpw)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
+
+                                        Intent intent = new Intent(Login.this, HomeScreen.class);
+
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
+                                    }
+                                }
+                            });
+                }
+                progressBar.setVisibility(View.GONE);
+            }
+        });
 
         callSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,17 +106,8 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public static String EncodeString(String string) {
-        return string.replace(".", ",");
-    }
-
-    public static String DecodeString(String string) {
-        return string.replace(",", ".");
-    }
-
 
     private boolean validateEmail() {
-        String valem = email.getEditText().getText().toString();
 
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -98,7 +125,7 @@ public class Login extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        String valpw = password.getEditText().getText().toString();
+
 
         if (valpw.isEmpty()) {
             password.setError("Field cannot be empty");
@@ -108,59 +135,6 @@ public class Login extends AppCompatActivity {
             password.setErrorEnabled(false);
             return true;
         }
-    }
-
-
-    public void signinprc(View view) {
-        if (!validatePassword() | !validateEmail()) {
-            return;
-        } else {
-            isUser();
-        }
-    }
-
-    private void isUser() {
-        String userEnteredEmail = EncodeString(email.getEditText().getText().toString().trim());
-        String userEnteredPassword = password.getEditText().getText().toString().trim();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-
-        Query checkUser = reference.orderByChild("emails").equalTo(userEnteredEmail);
-
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    email.setError(null);
-                    email.setErrorEnabled(false);
-
-                    String passwordFromDB = snapshot.child(userEnteredEmail).child("passwords").getValue(String.class);
-
-                    if (userEnteredPassword.equals(passwordFromDB)) {
-
-
-                        password.setError(null);
-                        password.setErrorEnabled(false);
-
-                        //String passwordFromDB = snapshot.child(userEnteredEmail).child("password").getValue(String.class);
-                        Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
-                        intent.putExtra("password", passwordFromDB);
-                        startActivity(intent);
-
-                    } else {
-                        password.setError("Wrong Password");
-                        password.requestFocus();
-                    }
-                } else {
-                    email.setError("No Such User Exists");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
     }
 
     public void withoutsignin(View view) {

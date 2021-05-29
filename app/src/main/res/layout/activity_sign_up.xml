@@ -13,9 +13,9 @@
         android:id="@+id/logoimagesmall"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:contentDescription="@string/logo"
         android:src="@drawable/logo"
-        android:transitionName="logo_image"
-        android:contentDescription="@string/logo" />
+        android:transitionName="logo_image" />
 
     <TextView
         android:id="@+id/welcome"
@@ -26,7 +26,7 @@
         android:text="@string/welcome"
         android:textColor="@color/dark_blue"
         android:textSize="40sp"
-        android:transitionName="logo_text"/>
+        android:transitionName="logo_text" />
 
     <TextView
         android:id="@+id/signupforawesome"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_up_for_awesome_way_to_learn"
         android:textSize="18sp"
-        android:transitionName="tag_line"/>
+        android:transitionName="tag_line" />
 
     <LinearLayout
         android:id="@+id/insidelayout"
@@ -48,8 +48,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fname"
@@ -97,6 +97,42 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/role">
+
+            <RadioGroup
+                android:id="@+id/role"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="-20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teacher" />
+
+                <RadioButton
+                    android:id="@+id/student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/student" />
+
+                <RadioButton
+                    android:id="@+id/freelancer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/freelancer" />
+
+            </RadioGroup>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/instituition"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -107,6 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
@@ -130,7 +167,7 @@
             android:layout_marginBottom="5dp"
             android:background="@color/dark_blue"
             android:text="@string/sign_up"
-            android:transitionName="sign_in_btn"/>
+            android:transitionName="sign_in_btn" />
 
         <Button
             android:id="@+id/btncallsignin"
@@ -144,6 +181,7 @@
             android:transitionName="sign_up_btn">
 
         </Button>
+
         <ProgressBar
             android:id="@+id/top_progress_bar"
             android:layout_width="wrap_content"
@@ -152,8 +190,7 @@
             android:indeterminate="false"
             android:max="100"
             android:progress="0"
-            android:visibility="gone">
-        </ProgressBar>
+            android:visibility="gone"/>
     </LinearLayout>
 
     <Button
@@ -164,5 +201,5 @@
         android:layout_marginBottom="5dp"
         android:background="#00000000"
         android:text="@string/continue_without_sign_up"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 </LinearLayout>

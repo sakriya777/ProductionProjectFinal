@@ -46,7 +46,7 @@
                         android:padding="10dp"
                         android:text="Grade 6"
                         android:id="@+id/getgrade6"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <Button
                         android:layout_width="0dp"
@@ -57,7 +57,7 @@
                         android:padding="10dp"
                         android:text="Grade 7"
                         android:id="@+id/getgrade7"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <Button
                         android:layout_width="0dp"
@@ -68,7 +68,7 @@
                         android:padding="10dp"
                         android:text="Grade 8"
                         android:id="@+id/getgrade8"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
 

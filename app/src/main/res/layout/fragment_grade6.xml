@@ -36,7 +36,7 @@
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="SCIENCE"
                 android:textColor="@color/dark_blue"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:paddingBottom="25dp"
                 android:paddingTop="25dp"/>
             <ImageView
@@ -61,7 +61,7 @@
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="ENGLISH"
                 android:textColor="@color/dark_blue"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:paddingBottom="25dp"
                 android:paddingTop="25dp"/>
             <ImageView
@@ -86,7 +86,7 @@
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="SOCIAL STUDIES"
                 android:textColor="@color/dark_blue"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:paddingBottom="25dp"
                 android:paddingTop="25dp"/>
             <ImageView
@@ -111,7 +111,7 @@
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="NEPALI"
                 android:textColor="@color/dark_blue"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:paddingBottom="25dp"
                 android:paddingTop="25dp"/>
             <ImageView
@@ -139,7 +139,7 @@
                 android:paddingBottom="25dp"
                 android:text="MATHEMATICS"
                 android:textColor="@color/dark_blue"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <ImageView
                 android:layout_width="100dp"

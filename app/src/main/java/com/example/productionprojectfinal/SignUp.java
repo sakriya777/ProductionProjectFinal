@@ -14,6 +14,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,10 +39,8 @@ public class SignUp extends AppCompatActivity {
     private TextInputLayout firstname, lastname, email, institution, password;
     private Button signup;
     private Button signincall;
-    private long id = 0;
-    private FirebaseDatabase rootNode;
     private DatabaseReference refrence, dbref;
-
+    private RadioGroup roles;
     private ProgressBar prgrsbar;
     private FirebaseAuth auth;
 //    @Override
@@ -50,11 +51,6 @@ public class SignUp extends AppCompatActivity {
 //            startFirstScreen();
 //        }
 //    }
-
-    private void startFirstScreen() {
-        startActivity(new Intent(this, HomeScreen.class));
-        finish();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +76,14 @@ public class SignUp extends AppCompatActivity {
         signup = findViewById(R.id.btnsignup);
         signincall = findViewById(R.id.btncallsignin);
         prgrsbar = findViewById(R.id.top_progress_bar);
+        roles = findViewById(R.id.role);
         Button withoutreg = findViewById(R.id.withoutsignup);
 
         withoutreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
-                    startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
+                startActivity(intent);
             }
         });
 
@@ -130,6 +127,9 @@ public class SignUp extends AppCompatActivity {
                 String emails = email.getEditText().getText().toString();
                 String instituitions = institution.getEditText().getText().toString();
                 String passwords = password.getEditText().getText().toString();
+                int role = roles.getCheckedRadioButtonId();
+                RadioButton rb = findViewById(role);
+                String rol = rb.getText().toString();
 
                 auth.createUserWithEmailAndPassword(emails, passwords)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -138,11 +138,15 @@ public class SignUp extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     dbref = refrence.child("users");
                                     String key = dbref.push().getKey();
+                                    FirebaseUser users = FirebaseAuth.getInstance().getCurrentUser();
+                                    String userid = users.getUid();
                                     HashMap<String, String> user = new HashMap<>();
                                     user.put("key", key);
                                     user.put("lname", lnames);
                                     user.put("fname", fnames);
                                     user.put("email", emails);
+                                    user.put("role",rol);
+                                    user.put("UID", userid);
                                     user.put("instituion", instituitions);
 
                                     //Uploading to Database
@@ -151,8 +155,8 @@ public class SignUp extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
-                                                        Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
-                                                        startFirstScreen();
+                                                        Toast.makeText(SignUp.this, "Sign Up Successful Login to Continue", Toast.LENGTH_SHORT).show();
+                                                        startActivity(new Intent(SignUp.this, Login.class));
                                                     } else {
                                                         Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                     }
@@ -179,15 +183,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-
-    public static String EncodeString(String string) {
-        return string.replace(".", ",");
-    }
-
-    public static String DecodeString(String string) {
-        return string.replace(",", ".");
-    }
-
 
     private boolean validateFirstName() {
         String valfn = firstname.getEditText().getText().toString();
