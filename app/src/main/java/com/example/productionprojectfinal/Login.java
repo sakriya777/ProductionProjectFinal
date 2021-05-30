@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -35,6 +36,7 @@ public class Login extends AppCompatActivity {
     FirebaseAuth auth;
     String valem, valpw;
     ProgressBar progressBar;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,10 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.top_progress_bar);
         auth = FirebaseAuth.getInstance();
 
+        if (user != null) {
+            Intent intent = new Intent(Login.this, HomeScreen.class);
+            startActivity(intent);
+        }
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

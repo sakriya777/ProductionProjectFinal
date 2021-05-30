@@ -9,12 +9,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,12 +36,13 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    FirebaseAuth auth;
-    DatabaseReference myRef;
-    DataSnapshot dataSnapshot;
-    public String role;
+    ImageView profile;
+    TextView roleText;
+    Menu menu;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    String userid = user.getUid();
+    MenuItem login, profiles, home, chat, discussion, quiz, enroll, logout;
+    DatabaseReference reference;
+    String userid;
 
     public void NavigationSetting() {
         if (Build.VERSION.SDK_INT >= 21) {
@@ -76,23 +81,33 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         NavigationSetting();
+        menu = navigationView.getMenu();
+        login = menu.findItem(R.id.login);
+        logout = menu.findItem(R.id.logout);
+        profile = findViewById(R.id.profilelogo);
+        if (user != null) {
+            profile.setVisibility(View.VISIBLE);
+            userid = user.getUid();
+            reference = FirebaseDatabase.getInstance().getReference("users");
+            roleText = findViewById(R.id.roletext);
+            login.setVisible(false);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userid = user.getUid();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user");
-        reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot datas : dataSnapshot.getChildren()) {
-                    role = datas.child("role").getValue().toString();
+            reference.orderByChild("UID").equalTo(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                   String role = dataSnapshot.child("UID").child("role").getValue(String.class);
+                   roleText.setText(role);
                 }
-            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
 
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+        } else {
+            logout.setVisible(false);
+        }
 
-            }
-        });
+
 
         getSupportFragmentManager().beginTransaction().add(R.id.container, new FirstScreenFragment()).commit();
     }
@@ -105,6 +120,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
@@ -134,7 +150,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
             finish();
         }
         if (item.getItemId() == R.id.logout) {
-            auth.signOut();
+            FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
             finish();
         }

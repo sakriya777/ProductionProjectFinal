@@ -17,10 +17,12 @@
             android:title="Chat"></item>
         <item
             android:id="@+id/quiz"
-            android:title="Quizes"></item>
+            android:title="Quizes"
+            android:icon="@drawable/quiz_30px"></item>
         <item
             android:id="@+id/enroll"
-            android:title="Enroll in a Class"></item>
+            android:title="Enroll in a Class"
+            android:icon="@drawable/class_30px"></item>
         <item
             android:id="@+id/school_courses"
             android:icon="@drawable/school_26px"
