@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -21,7 +23,15 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
 
     @Override
     protected void onBindViewHolder(@NonNull @NotNull myViewHolder holder, int position, @NonNull @NotNull Users model) {
-        holder.name.setText(model.getName());
+        holder.name.setText(model.getFname() + " " + model.getLname());
+
+        holder.chatone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new SingleChatFragment(model.getFname(), model.getLname(), model.getUID(), model.getEmail())).addToBackStack(null).commit();
+            }
+        });
     }
 
     @NonNull
@@ -35,10 +45,13 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
 
     public class myViewHolder extends RecyclerView.ViewHolder {
         TextView name;
+        CardView chatone;
 
         public myViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.username);
+            chatone = itemView.findViewById(R.id.chatone);
+
         }
     }
 

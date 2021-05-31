@@ -2,25 +2,35 @@ package com.example.productionprojectfinal;
 
 public class Users {
 
-    String name;
+    String fname;
+    String lname;
     String email;
     String UID;
 
     public Users() {
     }
 
-    public Users(String name, String email, String UID) {
-        this.name = name;
+    public Users(String fname, String lname, String email, String UID) {
+        this.fname = fname;
+        this.lname = lname;
         this.email = email;
         this.UID = UID;
     }
 
-    public String getName() {
-        return name;
+    public String getFname() {
+        return fname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public String getEmail() {
