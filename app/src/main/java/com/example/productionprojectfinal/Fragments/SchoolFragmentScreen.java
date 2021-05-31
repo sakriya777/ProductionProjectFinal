@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal;
+package com.example.productionprojectfinal.Fragments;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.productionprojectfinal.R;
 
 /**
  * A simple {@link Fragment} subclass.

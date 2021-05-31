@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal;
+package com.example.productionprojectfinal.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.productionprojectfinal.Fragments.SingleChatFragment;
+import com.example.productionprojectfinal.Models.Users;
+import com.example.productionprojectfinal.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 

@@ -7,7 +7,7 @@
     android:layout_marginTop="-30dp"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".SignUp">
+    tools:context=".Activities.SignUp">
 
     <ImageView
         android:id="@+id/logoimagesmall"

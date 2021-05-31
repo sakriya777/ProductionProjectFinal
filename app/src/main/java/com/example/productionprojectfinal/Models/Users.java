@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal;
+package com.example.productionprojectfinal.Models;
 
 public class Users {
 

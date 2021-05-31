@@ -1,19 +1,16 @@
-package com.example.productionprojectfinal;
+package com.example.productionprojectfinal.Fragments;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
+import com.example.productionprojectfinal.R;
 
 /**
  * A simple {@link Fragment} subclass.

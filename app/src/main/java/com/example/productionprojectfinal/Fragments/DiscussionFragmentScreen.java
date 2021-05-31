@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal;
+package com.example.productionprojectfinal.Fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.productionprojectfinal.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragmentScreen#newInstance} factory method to
+ * Use the {@link DiscussionFragmentScreen#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragmentScreen extends Fragment {
+public class DiscussionFragmentScreen extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class ProfileFragmentScreen extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ProfileFragmentScreen() {
+    public DiscussionFragmentScreen() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class ProfileFragmentScreen extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragmetnScreen.
+     * @return A new instance of fragment DiscussionFragmentScreen.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragmentScreen newInstance(String param1, String param2) {
-        ProfileFragmentScreen fragment = new ProfileFragmentScreen();
+    public static DiscussionFragmentScreen newInstance(String param1, String param2) {
+        DiscussionFragmentScreen fragment = new DiscussionFragmentScreen();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class ProfileFragmentScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_fragment_screen, container, false);
+        return inflater.inflate(R.layout.fragment_discussion_screen, container, false);
     }
 }

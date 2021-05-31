@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/pewter"
     android:fitsSystemWindows="true"
-    tools:context=".HomeScreen"
+    tools:context=".Activities.HomeScreen"
     tools:openDrawer="end">
 
 
