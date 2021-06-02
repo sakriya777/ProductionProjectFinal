@@ -3,12 +3,14 @@ package com.example.productionprojectfinal.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.productionprojectfinal.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +63,19 @@ public class DiscussionFragmentScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_discussion_screen, container, false);
+        View view = inflater.inflate(R.layout.fragment_discussion_screen, container, false);
+
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.adddiscussion);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddDiscussionFragment addDiscussionFragment = new AddDiscussionFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, addDiscussionFragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        return view;
     }
 }

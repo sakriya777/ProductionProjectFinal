@@ -135,20 +135,6 @@ public class SingleChatFragment extends Fragment {
             }
         });
 
-//        messagerecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-//
-//        FirebaseRecyclerOptions<Users> options =
-//                new FirebaseRecyclerOptions.Builder<Users>()
-//                        .setQuery(FirebaseDatabase.getInstance().getReference()
-//                                .child("chats")
-//                                .child(senderRoom)
-//                                .child("messages"), Users.class)
-//                        .build();
-//
-//
-//        messageAdapter = new MessageAdapter(options);
-//        messagerecycler.setAdapter(messageAdapter);
-
         name.setText(fname+" "+lname);
 
         sendbtn.setOnClickListener(new View.OnClickListener() {
@@ -161,8 +147,6 @@ public class SingleChatFragment extends Fragment {
                 else{
                     messageedittext.setText("");
                     Date date = new Date();
-
-
                     Messages messages = new Messages(message, senderUID, date.getTime());
 
                     firebaseDatabase = FirebaseDatabase.getInstance();

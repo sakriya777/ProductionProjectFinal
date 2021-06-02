@@ -60,7 +60,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="5"
                 app:cardBackgroundColor="@color/blue_gray"
-                app:cardCornerRadius="100dp">
+                app:cardCornerRadius="10dp">
 
                 <EditText
                     android:id="@+id/edittextmessage"
@@ -69,7 +69,6 @@
                     android:fontFamily="@font/spartan_regular"
                     android:hint="Type a Message"
                     android:paddingStart="20dp"
-                    android:layout_gravity="center_vertical"
                     android:background="@null"/>
             </androidx.cardview.widget.CardView>
 
@@ -79,7 +78,7 @@
                 android:layout_height="45dp"
                 android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/dark_blue"
-                app:cardCornerRadius="100dp">
+                app:cardCornerRadius="15dp">
 
                 <ImageView
                     android:layout_width="match_parent"
