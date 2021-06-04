@@ -21,16 +21,10 @@ import java.util.ArrayList;
 
 public class ChatFragmentScreen extends Fragment {
 
-    FirebaseAuth auth;
     RecyclerView recyclerView;
     UserAdapter userAdapter;
 
-    FirebaseDatabase firebaseDatabase;
-
-    ArrayList<Users> usersArrayList;
-
     public ChatFragmentScreen() {
-        // Required empty public constructor
     }
 
     @Override
@@ -47,12 +41,12 @@ public class ChatFragmentScreen extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("users"), Users.class)
                         .build();
 
-
         userAdapter = new UserAdapter(options);
         recyclerView.setAdapter(userAdapter);
 
         return v;
     }
+
     @Override
     public void onStart() {
         super.onStart();

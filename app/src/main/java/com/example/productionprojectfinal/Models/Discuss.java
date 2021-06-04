@@ -6,15 +6,25 @@ public class Discuss {
     String title;
     String discuss;
     String id;
-    String postkey;
+    String postid;
 
-    public Discuss(String key, String about, String title, String discuss, String id, String postkey) {
+    public String getPostid() {
+        return postid;
+    }
+
+    public void setPostid(String postid) {
+        this.postid = postid;
+    }
+
+
+
+    public Discuss(String key, String about, String title, String discuss, String id, String postid) {
         this.key = key;
         this.about = about;
         this.title = title;
         this.discuss = discuss;
         this.id = id;
-        this.postkey = postkey;
+        this.postid = postid;
     }
 
     public String getId() {

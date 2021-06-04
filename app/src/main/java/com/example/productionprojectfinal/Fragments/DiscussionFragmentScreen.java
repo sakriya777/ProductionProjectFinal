@@ -4,59 +4,28 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.productionprojectfinal.Adapters.DiscussAdapter;
+import com.example.productionprojectfinal.Adapters.UserAdapter;
+import com.example.productionprojectfinal.Models.Discuss;
+import com.example.productionprojectfinal.Models.Users;
 import com.example.productionprojectfinal.R;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DiscussionFragmentScreen#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DiscussionFragmentScreen extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    DiscussAdapter discussAdapter;
+    RecyclerView recyclerView;
 
     public DiscussionFragmentScreen() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DiscussionFragmentScreen.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DiscussionFragmentScreen newInstance(String param1, String param2) {
-        DiscussionFragmentScreen fragment = new DiscussionFragmentScreen();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -76,6 +45,29 @@ public class DiscussionFragmentScreen extends Fragment {
             }
         });
 
+        recyclerView = view.findViewById(R.id.discussrecycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FirebaseRecyclerOptions<Discuss> options =
+                new FirebaseRecyclerOptions.Builder<Discuss>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("discuss"), Discuss.class)
+                .build();
+
+        discussAdapter = new DiscussAdapter(options);
+        recyclerView.setAdapter(discussAdapter);
+
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        discussAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        discussAdapter.stopListening();
     }
 }

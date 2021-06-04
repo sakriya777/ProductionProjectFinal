@@ -31,7 +31,7 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
         holder.chatone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new SingleChatFragment(model.getFname(), model.getLname(), model.getUID(), model.getEmail())).addToBackStack(null).commit();
             }
         });

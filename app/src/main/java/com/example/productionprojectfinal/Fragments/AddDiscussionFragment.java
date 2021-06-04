@@ -29,16 +29,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddDiscussionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddDiscussionFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -47,18 +41,8 @@ public class AddDiscussionFragment extends Fragment {
     private String mParam2;
 
     public AddDiscussionFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddDiscussionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AddDiscussionFragment newInstance(String param1, String param2) {
         AddDiscussionFragment fragment = new AddDiscussionFragment();
         Bundle args = new Bundle();
@@ -128,15 +112,20 @@ public class AddDiscussionFragment extends Fragment {
                 DatabaseReference dbref = refrence.child("users");
                 String id = auth.getUid();
                 String postid = dbref.push().getKey();
-                String key = id + postid;
                 FirebaseDatabase firebaseDatabase;
-                Discuss discuss = new Discuss(key, about[0], titletxt, discusstxt, id, postid);
+
+
+                HashMap<String, String> user = new HashMap<>();
+                user.put("about", about[0]);
+                user.put("title", titletxt);
+                user.put("discuss", discusstxt);
+                user.put("id",id);
+                user.put("postid", postid);
 
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 firebaseDatabase.getReference().child("discuss")
-                        .child(key)
                         .push()
-                        .setValue(discuss).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<Void> task) {
                         DiscussionFragmentScreen discussionFragmentScreen = new DiscussionFragmentScreen();
