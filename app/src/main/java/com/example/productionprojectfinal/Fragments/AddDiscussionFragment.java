@@ -109,10 +109,9 @@ public class AddDiscussionFragment extends Fragment {
                 DatabaseReference refrence = FirebaseDatabase.getInstance().getReference();
 
                 FirebaseAuth auth = FirebaseAuth.getInstance();
-                DatabaseReference dbref = refrence.child("users");
+                DatabaseReference dbref = refrence.child("discuss");
                 String id = auth.getUid();
                 String postid = dbref.push().getKey();
-                FirebaseDatabase firebaseDatabase;
 
 
                 HashMap<String, String> user = new HashMap<>();
@@ -122,9 +121,7 @@ public class AddDiscussionFragment extends Fragment {
                 user.put("id",id);
                 user.put("postid", postid);
 
-                firebaseDatabase = FirebaseDatabase.getInstance();
-                firebaseDatabase.getReference().child("discuss")
-                        .push()
+                dbref.child(postid)
                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<Void> task) {

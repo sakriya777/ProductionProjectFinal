@@ -65,6 +65,14 @@
                     android:text="about" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/titletext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:padding="10dp"
+                android:text="Title"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/discussiontext"
@@ -112,6 +120,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/addcomment"
+            android:id="@+id/commentrecycler"
             android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

@@ -39,6 +39,7 @@ public class DiscussAdapter extends FirebaseRecyclerAdapter<Discuss, DiscussAdap
 
         holder.about.setText(model.getAbout());
         holder.discussion.setText(model.getDiscuss());
+        holder.title.setText(model.getTitle());
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
         reference.orderByChild("UID").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -57,7 +58,7 @@ public class DiscussAdapter extends FirebaseRecyclerAdapter<Discuss, DiscussAdap
                         public void onClick(View v) {
                             AppCompatActivity activity = (AppCompatActivity) v.getContext();
                             activity.getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.container, new SingleDiscussionFragment(fullname, model.getAbout(), model.getDiscuss(), model.getKey(), postkey)).addToBackStack(null).commit();
+                                    .replace(R.id.container, new SingleDiscussionFragment(fullname, model.getAbout(), model.getDiscuss(), model.getKey(), postkey, model.getTitle())).addToBackStack(null).commit();
                         }
                     });
                 }
@@ -84,13 +85,14 @@ public class DiscussAdapter extends FirebaseRecyclerAdapter<Discuss, DiscussAdap
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView name, about, discussion;
+        TextView name, about, discussion, title;
 
         CardView discussone;
         public myViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.username);
             about = itemView.findViewById(R.id.abouttext);
+            title = itemView.findViewById(R.id.titletext);
             discussion = itemView.findViewById(R.id.discussiontext);
 
             discussone = itemView.findViewById(R.id.discussone);
