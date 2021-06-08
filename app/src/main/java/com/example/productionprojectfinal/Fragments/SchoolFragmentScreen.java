@@ -74,7 +74,7 @@ public class SchoolFragmentScreen extends Fragment {
             public void onClick(View v) {
                 Grade6Fragment grade6Fragment = new Grade6Fragment();
                 FragmentTransaction fm = getFragmentManager().beginTransaction();
-                fm.replace(R.id.container, grade6Fragment);
+                fm.replace(R.id.container, grade6Fragment).addToBackStack(null);
                 fm.commit();
             }
         });
@@ -85,7 +85,7 @@ public class SchoolFragmentScreen extends Fragment {
             public void onClick(View v) {
                 Grade7Fragment grade7Fragment = new Grade7Fragment();
                 FragmentTransaction fm = getFragmentManager().beginTransaction();
-                fm.replace(R.id.container, grade7Fragment);
+                fm.replace(R.id.container, grade7Fragment).addToBackStack(null);
                 fm.commit();
             }
         });
@@ -96,7 +96,7 @@ public class SchoolFragmentScreen extends Fragment {
             public void onClick(View v) {
                 Grade8Fragment grade8Fragment = new Grade8Fragment();
                 FragmentTransaction fm = getFragmentManager().beginTransaction();
-                fm.replace(R.id.container, grade8Fragment);
+                fm.replace(R.id.container, grade8Fragment).addToBackStack(null);
                 fm.commit();
             }
         });
@@ -107,7 +107,40 @@ public class SchoolFragmentScreen extends Fragment {
             public void onClick(View v) {
                 Grade9Fragment grade9Fragment = new Grade9Fragment();
                 FragmentTransaction fm = getFragmentManager().beginTransaction();
-                fm.replace(R.id.container, grade9Fragment);
+                fm.replace(R.id.container, grade9Fragment).addToBackStack(null);
+                fm.commit();
+            }
+        });
+        grade10 = v.findViewById(R.id.getgrade10);
+
+        grade10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade10Fragment grade10Fragment = new Grade10Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade10Fragment).addToBackStack(null);
+                fm.commit();
+            }
+        });
+        grade11 = v.findViewById(R.id.getgrade11);
+
+        grade11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade11Fragment grade11Fragment = new Grade11Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade11Fragment).addToBackStack(null);
+                fm.commit();
+            }
+        });
+        grade12 = v.findViewById(R.id.getgrade12);
+
+        grade12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grade12Fragment grade12Fragment = new Grade12Fragment();
+                FragmentTransaction fm = getFragmentManager().beginTransaction();
+                fm.replace(R.id.container, grade12Fragment).addToBackStack(null);
                 fm.commit();
             }
         });

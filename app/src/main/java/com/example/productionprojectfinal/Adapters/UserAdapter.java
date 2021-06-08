@@ -15,6 +15,7 @@ import com.example.productionprojectfinal.Models.Users;
 import com.example.productionprojectfinal.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,7 +27,15 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
 
     @Override
     protected void onBindViewHolder(@NonNull @NotNull myViewHolder holder, int position, @NonNull @NotNull Users model) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String currentuser = auth.getCurrentUser().getUid();
+
         holder.name.setText(model.getFname() + " " + model.getLname());
+
+        if (currentuser.equals(model.getUID())){
+            holder.chatone.setVisibility(View.GONE);
+            holder.chatone.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
 
         holder.chatone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +44,7 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new SingleChatFragment(model.getFname(), model.getLname(), model.getUID(), model.getEmail())).addToBackStack(null).commit();
             }
         });
+
     }
 
     @NonNull
@@ -49,12 +59,13 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
     public class myViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         CardView chatone;
+        RecyclerView recyclerView;
 
         public myViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.username);
             chatone = itemView.findViewById(R.id.chatone);
-
+            recyclerView = itemView.findViewById(R.id.chatrecycler);
         }
     }
 

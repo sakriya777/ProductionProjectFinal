@@ -6,31 +6,31 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/logo"
-            android:title="@string/Title"></item>
+            android:title="@string/Title"/>
         <item
             android:id="@+id/discussion"
             android:icon="@drawable/discussion_forum_80px"
-            android:title="Discussion"></item>
+            android:title="Discussion"/>
         <item
             android:id="@+id/chat"
             android:icon="@drawable/chat_30px"
-            android:title="Chat"></item>
+            android:title="Chat"/>
         <item
             android:id="@+id/quiz"
             android:title="Quizes"
-            android:icon="@drawable/quiz_30px"></item>
+            android:icon="@drawable/quiz_30px"/>
         <item
             android:id="@+id/enroll"
             android:title="Enroll in a Class"
-            android:icon="@drawable/class_30px"></item>
+            android:icon="@drawable/class_30px"/>
         <item
             android:id="@+id/school_courses"
             android:icon="@drawable/school_26px"
-            android:title="School Courses"></item>
+            android:title="School Courses"/>
         <item
             android:id="@+id/outschool_courses"
             android:icon="@drawable/education_24px"
-            android:title="OutSchool Courses"></item>
+            android:title="OutSchool Courses"/>
     </group>
 
     <item android:title="Profile">
@@ -40,15 +40,15 @@
                 <item
                     android:id="@+id/profile"
                     android:icon="@drawable/profile_24px"
-                    android:title="Profile"></item>
+                    android:title="Profile"/>
                 <item
                     android:id="@+id/login"
                     android:icon="@drawable/login_30px"
-                    android:title="Login"></item>
+                    android:title="Login"/>
                 <item
                     android:id="@+id/logout"
                     android:icon="@drawable/logout_rounded_left_32px"
-                    android:title="Logout"></item>
+                    android:title="Logout"/>
             </group>
         </menu>
     </item>

@@ -40,7 +40,7 @@ public class DiscussionFragmentScreen extends Fragment {
             public void onClick(View v) {
                 AddDiscussionFragment addDiscussionFragment = new AddDiscussionFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, addDiscussionFragment);
+                fragmentTransaction.replace(R.id.container, addDiscussionFragment).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

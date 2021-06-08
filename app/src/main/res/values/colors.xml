@@ -12,5 +12,6 @@
     <color name="yellow">#FAD02C</color>
     <color name="blue_gray">#90ADC6</color>
     <color name="light_white">#EDEEEE</color>
+    <color name="chat">#EDEEEE</color>
 
 </resources>

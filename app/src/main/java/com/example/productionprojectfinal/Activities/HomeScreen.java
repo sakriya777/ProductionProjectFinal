@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -24,7 +26,9 @@ import com.example.productionprojectfinal.Fragments.DiscussionFragmentScreen;
 import com.example.productionprojectfinal.Fragments.FirstScreenFragment;
 import com.example.productionprojectfinal.Fragments.OutSchoolFragmentScreen;
 import com.example.productionprojectfinal.Fragments.ProfileFragmentScreen;
+import com.example.productionprojectfinal.Fragments.QuizFragmentScreen;
 import com.example.productionprojectfinal.Fragments.SchoolFragmentScreen;
+import com.example.productionprojectfinal.Fragments.TeacherQuizFragmentScreen;
 import com.example.productionprojectfinal.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,9 +50,9 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     TextView roleText;
     Menu menu;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    MenuItem login, profiles, home, chat, discussion, quiz, enroll, logout;
-    DatabaseReference reference;
+    MenuItem login, profiles, home, chat, discussion, quiz, enroll, logout, school, outschool;
     String userid;
+    String role;
 
     public void NavigationSetting() {
         if (Build.VERSION.SDK_INT >= 21) {
@@ -90,33 +94,56 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         menu = navigationView.getMenu();
         login = menu.findItem(R.id.login);
         logout = menu.findItem(R.id.logout);
+        profiles = menu.findItem(R.id.profile);
+        home = menu.findItem(R.id.nav_home);
+        chat = menu.findItem(R.id.chat);
+        discussion = menu.findItem(R.id.discussion);
+        quiz = menu.findItem(R.id.quiz);
+        enroll = menu.findItem(R.id.enroll);
+        school = menu.findItem(R.id.school_courses);
+        outschool = menu.findItem(R.id.outschool_courses);
+
+
         profile = findViewById(R.id.profilelogo);
+        roleText = findViewById(R.id.roletext);
         if (user != null) {
             profile.setVisibility(View.VISIBLE);
             userid = user.getUid();
-            reference = FirebaseDatabase.getInstance().getReference("users");
-            roleText = findViewById(R.id.roletext);
-            login.setVisible(false);
-
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
             reference.orderByChild("UID").equalTo(userid).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                   String role = dataSnapshot.child("UID").child("role").getValue(String.class);
-                   roleText.setText(role);
+                public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                    for (DataSnapshot datas : snapshot.getChildren()) {
+                        role = datas.child("role").getValue().toString();
+                        roleText.setText(role);
+                        if (role.equals("Freelancer")) {
+                            enroll.setVisible(false);
+                            quiz.setVisible(false);
+                            school.setVisible(false);
+                        }
+                    }
                 }
+
                 @Override
-                public void onCancelled(DatabaseError databaseError) {
+                public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
                 }
             });
+            login.setVisible(false);
+
 
         } else {
             logout.setVisible(false);
         }
 
 
-
         getSupportFragmentManager().beginTransaction().add(R.id.container, new FirstScreenFragment()).commit();
     }
+
+    private static final int TIME_DELAY = 2000;
+    private static long back_pressed;
+
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     public void onBackPressed() {
@@ -124,6 +151,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
             drawerLayout.closeDrawer((GravityCompat.START));
         } else {
             super.onBackPressed();
+            return;
         }
     }
 
@@ -131,25 +159,51 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         if (item.getItemId() == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new FirstScreenFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new FirstScreenFragment()).addToBackStack(null).commit();
             drawerLayout.closeDrawers();
         }
         if (item.getItemId() == R.id.discussion) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new DiscussionFragmentScreen()).commit();
-            drawerLayout.closeDrawers();
+            if (user == null) {
+                Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new DiscussionFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }
+
         }
         if (item.getItemId() == R.id.chat) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ChatFragmentScreen()).commit();
-            drawerLayout.closeDrawers();
+            if (user == null) {
+                Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new ChatFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }
         }
         if (item.getItemId() == R.id.school_courses) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new SchoolFragmentScreen()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new SchoolFragmentScreen()).addToBackStack(null).commit();
             drawerLayout.closeDrawers();
         }
         if (item.getItemId() == R.id.outschool_courses) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new OutSchoolFragmentScreen()).commit();
-            drawerLayout.closeDrawers();
+            if (user == null) {
+                Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new OutSchoolFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }
         }
+        if (item.getItemId() == R.id.quiz) {
+            if (user == null) {
+                Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+            }
+            else if (role.equals("Teacher")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new TeacherQuizFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuizFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }
+        }
+
 
         if (item.getItemId() == R.id.login) {
             startActivity(new Intent(this, Login.class));
@@ -161,7 +215,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
             finish();
         }
         if (item.getItemId() == R.id.profile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragmentScreen()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragmentScreen()).addToBackStack(null).commit();
             drawerLayout.closeDrawers();
         }
         return true;

@@ -21,6 +21,8 @@ public class FirstScreenFragment extends Fragment {
 
     CardView formalcardview, nonformalcardview;
 
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -77,7 +79,7 @@ public class FirstScreenFragment extends Fragment {
             public void onClick(View v) {
                 SchoolFragmentScreen schoolFragmentScreen = new SchoolFragmentScreen();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, schoolFragmentScreen);
+                fragmentTransaction.replace(R.id.container, schoolFragmentScreen).addToBackStack(null);
                 fragmentTransaction.commit();
 
             }
