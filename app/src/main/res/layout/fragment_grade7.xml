@@ -4,130 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.SchoolFragments.Grade6Fragment">
+    tools:context=".Fragments.SchoolFragments.Grade7Fragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="@color/dark_blue"
-                android:textSize="30dp"
+                android:fontFamily="@font/alfa_slab_one"
                 android:text="Grade 7 Subjects"
-                android:fontFamily="@font/alfa_slab_one"/>
+                android:textColor="@color/dark_blue"
+                android:textSize="30dp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/g7sciencebtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/yellow"
-                app:cardCornerRadius="35dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="35dp">
 
                 <TextView
-                    android:paddingStart="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alfa_slab_one"
+                    android:paddingStart="50dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
                     android:text="SCIENCE"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp"
-                    android:paddingBottom="25dp"
-                    android:paddingTop="25dp"/>
+                    android:textSize="20dp" />
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/science_application_60px"
                     android:layout_gravity="right"
-                    android:paddingEnd="25dp"/>
+                    android:paddingEnd="25dp"
+                    android:src="@drawable/science_application_60px" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/g7englishbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/yellow"
-                app:cardCornerRadius="35dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="35dp">
 
                 <TextView
-                    android:paddingStart="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alfa_slab_one"
+                    android:paddingStart="50dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
                     android:text="ENGLISH"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp"
-                    android:paddingBottom="25dp"
-                    android:paddingTop="25dp"/>
+                    android:textSize="20dp" />
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/verb_64px"
                     android:layout_gravity="right"
-                    android:paddingEnd="25dp"/>
+                    android:paddingEnd="25dp"
+                    android:src="@drawable/verb_64px" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/g7socialbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/yellow"
-                app:cardCornerRadius="35dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="35dp">
 
                 <TextView
-                    android:paddingStart="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alfa_slab_one"
+                    android:paddingStart="50dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
                     android:text="SOCIAL STUDIES"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp"
-                    android:paddingBottom="25dp"
-                    android:paddingTop="25dp"/>
+                    android:textSize="20dp" />
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/share_240px"
                     android:layout_gravity="right"
-                    android:paddingEnd="25dp"/>
+                    android:paddingEnd="25dp"
+                    android:src="@drawable/share_240px" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/g7nepalibtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/yellow"
-                app:cardCornerRadius="35dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="35dp">
 
                 <TextView
-                    android:paddingStart="50dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alfa_slab_one"
+                    android:paddingStart="50dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
                     android:text="NEPALI"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp"
-                    android:paddingBottom="25dp"
-                    android:paddingTop="25dp"/>
+                    android:textSize="20dp" />
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ka"
                     android:layout_gravity="right"
-                    android:paddingEnd="25dp"/>
+                    android:paddingEnd="25dp"
+                    android:src="@drawable/ka" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/g7mathematicsbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

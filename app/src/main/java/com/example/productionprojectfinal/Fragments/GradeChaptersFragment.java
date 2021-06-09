@@ -36,15 +36,15 @@ public class GradeChaptersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_g6_english, container, false);
+        View view = inflater.inflate(R.layout.fragment_grade_chapters, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.g6englishrecycler);
+        RecyclerView recyclerView = view.findViewById(R.id.subjectrecycler);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         FirebaseRecyclerOptions<CourseModel> options =
                 new FirebaseRecyclerOptions.Builder<CourseModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("schoolcourse").child(grade).child(subject), CourseModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("schoolcourse").child(grade).child(subject).orderByChild("number").startAt(1), CourseModel.class)
                         .build();
 
         courseAdapter = new CourseAdapter(options);
