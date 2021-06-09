@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.SchoolFragments;
 
 import android.os.Bundle;
 
@@ -15,7 +15,8 @@ import com.example.productionprojectfinal.R;
  * Use the {@link Grade7Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Grade7Fragment extends Fragment {
+public class
+Grade7Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

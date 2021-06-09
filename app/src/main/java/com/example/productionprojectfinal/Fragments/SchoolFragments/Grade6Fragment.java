@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.SchoolFragments;
 
 import android.os.Bundle;
 
@@ -15,6 +15,7 @@ import com.example.productionprojectfinal.Fragments.Grade6.G6MathematicsFragment
 import com.example.productionprojectfinal.Fragments.Grade6.G6NepaliFragment;
 import com.example.productionprojectfinal.Fragments.Grade6.G6ScienceFragment;
 import com.example.productionprojectfinal.Fragments.Grade6.G6SocialFragment;
+import com.example.productionprojectfinal.Fragments.GradeChaptersFragment;
 import com.example.productionprojectfinal.R;
 
 /**
@@ -81,45 +82,45 @@ public class Grade6Fragment extends Fragment {
         g6science.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                G6ScienceFragment g6ScienceFragment = new G6ScienceFragment();
+                GradeChaptersFragment gradeChaptersFragment = new GradeChaptersFragment("grade6", "science");
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, g6ScienceFragment).addToBackStack(null);
+                fragmentTransaction.replace(R.id.container, gradeChaptersFragment).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
         g6english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                G6EnglishFragment g6EnglishFragment = new G6EnglishFragment();
+                GradeChaptersFragment gradeChaptersFragment = new GradeChaptersFragment("grade6", "english");
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, g6EnglishFragment).addToBackStack(null);
+                fragmentTransaction.replace(R.id.container, gradeChaptersFragment).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
         g6social.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                G6SocialFragment g6SocialFragment = new G6SocialFragment();
+                GradeChaptersFragment gradeChaptersFragment = new GradeChaptersFragment("grade6", "social");
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, g6SocialFragment).addToBackStack(null);
+                fragmentTransaction.replace(R.id.container, gradeChaptersFragment).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
         g6nepali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                G6NepaliFragment g6NepaliFragment = new G6NepaliFragment();
+                GradeChaptersFragment gradeChaptersFragment = new GradeChaptersFragment("grade6", "nepali");
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, g6NepaliFragment).addToBackStack(null);
+                fragmentTransaction.replace(R.id.container, gradeChaptersFragment).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
         g6mathematics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                G6MathematicsFragment g6MathematicsFragment = new G6MathematicsFragment();
+                GradeChaptersFragment gradeChaptersFragment = new GradeChaptersFragment("grade6", "mathematics");
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, g6MathematicsFragment).addToBackStack(null);
+                fragmentTransaction.replace(R.id.container, gradeChaptersFragment).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

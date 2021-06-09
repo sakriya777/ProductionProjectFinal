@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.Discussion;
 
 import android.os.Bundle;
 
@@ -17,9 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.productionprojectfinal.Adapters.CommentAdapter;
-import com.example.productionprojectfinal.Adapters.DiscussAdapter;
 import com.example.productionprojectfinal.Models.Comment;
-import com.example.productionprojectfinal.Models.Discuss;
 import com.example.productionprojectfinal.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;

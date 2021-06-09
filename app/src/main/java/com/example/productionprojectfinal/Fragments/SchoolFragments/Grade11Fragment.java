@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.SchoolFragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.productionprojectfinal.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Grade10Fragment#newInstance} factory method to
+ * Use the {@link Grade11Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Grade10Fragment extends Fragment {
+public class Grade11Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Grade10Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Grade10Fragment() {
+    public Grade11Fragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Grade10Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Grade10Fragment.
+     * @return A new instance of fragment Grade11Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Grade10Fragment newInstance(String param1, String param2) {
-        Grade10Fragment fragment = new Grade10Fragment();
+    public static Grade11Fragment newInstance(String param1, String param2) {
+        Grade11Fragment fragment = new Grade11Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class Grade10Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_grade10, container, false);
+        return inflater.inflate(R.layout.fragment_grade11, container, false);
     }
 }

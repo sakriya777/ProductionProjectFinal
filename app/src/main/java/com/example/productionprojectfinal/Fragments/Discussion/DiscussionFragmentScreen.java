@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.Discussion;
 
 import android.os.Bundle;
 
@@ -12,9 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.productionprojectfinal.Adapters.DiscussAdapter;
-import com.example.productionprojectfinal.Adapters.UserAdapter;
+import com.example.productionprojectfinal.Fragments.Discussion.AddDiscussionFragment;
 import com.example.productionprojectfinal.Models.Discuss;
-import com.example.productionprojectfinal.Models.Users;
 import com.example.productionprojectfinal.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

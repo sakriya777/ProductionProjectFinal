@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -15,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProductionProjectFinal"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Activities.DataBulkAdd"></activity>
         <activity android:name=".Activities.HomeScreen" />
         <activity android:name=".Activities.SignUp" />
         <activity android:name=".Activities.Login" />

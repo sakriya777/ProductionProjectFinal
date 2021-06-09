@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.productionprojectfinal.Fragments.SingleDiscussionFragment;
+import com.example.productionprojectfinal.Fragments.Discussion.SingleDiscussionFragment;
 import com.example.productionprojectfinal.Models.Discuss;
 import com.example.productionprojectfinal.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;

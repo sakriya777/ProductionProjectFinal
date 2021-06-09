@@ -9,7 +9,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +20,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.productionprojectfinal.Fragments.ChatFragmentScreen;
-import com.example.productionprojectfinal.Fragments.DiscussionFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Chat.ChatFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Discussion.DiscussionFragmentScreen;
 import com.example.productionprojectfinal.Fragments.FirstScreenFragment;
 import com.example.productionprojectfinal.Fragments.OutSchoolFragmentScreen;
 import com.example.productionprojectfinal.Fragments.ProfileFragmentScreen;

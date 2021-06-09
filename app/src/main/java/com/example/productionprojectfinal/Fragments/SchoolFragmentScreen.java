@@ -1,5 +1,6 @@
 package com.example.productionprojectfinal.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,23 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.productionprojectfinal.Activities.DataBulkAdd;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade10Fragment;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade11Fragment;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade12Fragment;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade6Fragment;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade7Fragment;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade8Fragment;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.Grade9Fragment;
 import com.example.productionprojectfinal.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SchoolFragmentScreen#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SchoolFragmentScreen extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     Button grade6,grade7,grade8,grade9,grade10,grade11,grade12;
 
@@ -34,32 +32,6 @@ public class SchoolFragmentScreen extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SchoolFragmentScreen.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SchoolFragmentScreen newInstance(String param1, String param2) {
-        SchoolFragmentScreen fragment = new SchoolFragmentScreen();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,7 +39,18 @@ public class SchoolFragmentScreen extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_school_screen, container, false);
 
+
         grade6 = v.findViewById(R.id.getgrade6);
+
+        Button  adddata;
+        adddata = v.findViewById(R.id.add_data);
+        adddata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DataBulkAdd.class);
+                startActivity(intent);
+            }
+        });
 
         grade6.setOnClickListener(new View.OnClickListener() {
             @Override
