@@ -164,6 +164,17 @@ public class DataBulkAdd extends AppCompatActivity {
         String[] g12sciene = {};
         String[] g12social = {};
 
+        String[] g6socialchap1 = {"Community and Society",	"Origin and Formation of Society",	"Our VDC And its Functions",	"Our Municipality and its Functions",	"Our Infrastructure Of Development:Education",	"Our Infrastructure of Development:Health"};
+        String[] g6socialchap2 = {"Our Festivals",	"Our National Pride",	"Unity in Diversity",	"Our Cultural Heritage",	"Our Religious Heritages",	"Jaya Prithivi Bahadur Singh",	"Tulsi Meher Shrestha"};
+        String[] g6socialchap3 = {"Causes and Solution of Social problems",	"Social Problems",	"Social Evils",	"Social Discrimination",	"Feel The Problem of Others",	"Sustainable Peace"};
+        String[] g6socialchap4 = {"Our Constitution",	"Introduction to Citizen",	"Rights of a Citizen",	"The Traffic Rules",	"Duties of Citizens",	"Nation and Nationality",	"Federal Democratic Republic"};
+        String[] g6socialchap5 = {"Introduction to Earth",	"Latitudes and Longitudes",	"Location, Size and Boundary of Nepal",	"Topography and Climate of Nepal",	"Social life of Nepal",	"Map Work",	"Continent of Asia",	"Climate Change",	"Disaster Management",};
+        String[] g6socialchap6 = {"Origin of Kathmandu Valley",	"Sinja Valley",	"Political Condition of Ancient Nepal",	"Social Structure of Ancient Nepal",	"Economic Activities of Ancient Nepal",	"Art and Culture of Ancient Nepal",	"The Indus Valley Civilization",	"The Nile Valley Civilization"};
+        String[] g6socialchap7 = {"Introduction to Our Economic Activities",	"Agricultural Activities of Nepal",	"Present State of Agriculture in Nepal",	"Service as an Important Economic Activity",	"Present State Of Service Sectors And Its Importance"};
+        String[] g6socialchap8 = {"Introduction to International Relation and Cooperation",	"South Asian Association for Regional Cooperation (SAARC)",	"Objectives of SAARC",	"Importance Of SAARC For Nepal",	"Current Affairs of the World"};
+        String[] g6socialchap9 = {"Introduction and Importance of Population",	"Factors of Population Change",	"Relation of Population with other Subjects",	"Size and Change of Population",	"Composition and Distribution of Population"};
+        String[] g6socialchap10 = {"Population Growth and its Effect",	"Introduction and Importance of Population Management",	"Problems of Population Management",	"Role of Governmental And Non-Governmental Organization in Population Management",	"Measures of Population Management"};
+
 
         String[] subjects = {"english", "mathematics", "nepali", "science", "social"};
 
@@ -228,6 +239,100 @@ public class DataBulkAdd extends AppCompatActivity {
                             chapter.put("number", String.valueOf(num));
                             chapter.put("chap", "chapter" + num);
                             dbref.child(grade).child(sub).child("chapter" + num).setValue(chapter);
+                            int lesson = 1;
+                            if (num == 1){
+                                for (String lesso : g6socialchap1) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            } if (num == 2){
+                                for (String lesso : g6socialchap2) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 3){
+                                for (String lesso : g6socialchap3) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 4){
+                                for (String lesso : g6socialchap4) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 5){
+                                for (String lesso : g6socialchap5) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 6){
+                                for (String lesso : g6socialchap6) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 7){
+                                for (String lesso : g6socialchap7) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 8){
+                                for (String lesso : g6socialchap8) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 9){
+                                for (String lesso : g6socialchap9) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }if (num == 10){
+                                for (String lesso : g6socialchap10) {
+                                    HashMap<String, String> lessons = new HashMap<>();
+                                    lessons.put("name", lesso);
+                                    lessons.put("number", String.valueOf(lesson));
+                                    lessons.put("lesson", "lesson" + lesson);
+                                    dbref.child(grade).child(sub).child("chapter" + num).child("lesson"+lesson).setValue(lessons);
+                                    lesson = lesson+1;
+                                }
+                            }
+
+
                             num = num + 1;
                         }
 
