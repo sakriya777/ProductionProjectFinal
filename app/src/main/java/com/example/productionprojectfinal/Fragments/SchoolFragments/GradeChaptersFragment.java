@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.SchoolFragments;
 
 import android.os.Bundle;
 
@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class GradeChaptersFragment extends Fragment {
 
-    CourseAdapter courseAdapter;
+    CourseAdapter courseAdapter, datapass;
     String grade, subject;
 
     public GradeChaptersFragment() {
@@ -48,6 +48,8 @@ public class GradeChaptersFragment extends Fragment {
                         .build();
 
         courseAdapter = new CourseAdapter(options);
+        courseAdapter.setGrade(grade);
+        courseAdapter.setSubject(subject);
         recyclerView.setAdapter(courseAdapter);
 
         return view;
