@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Discussion.AddDiscussionFragment">
+    tools:context=".AddOutSchoolCourse"
+    android:padding="17dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/about"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:gravity="center"
-            android:text="@string/about"/>
-        <Spinner
-            android:layout_toEndOf="@+id/about"
-            android:id="@+id/spinner"
+        <VideoView
+            android:layout_marginTop="17dp"
+            android:id="@+id/videopreview"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="300dp" />
 
-        </Spinner>
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@+id/spinner"
             android:id="@+id/title"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/videopreview"
             android:layout_marginEnd="5dp"
             android:hint="@string/title">
 
@@ -40,33 +30,45 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@+id/title"
-            android:id="@+id/discuss"
+            android:id="@+id/description"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
             android:layout_marginEnd="5dp"
-            android:hint="@string/discuss"
-            android:gravity="top">
+            android:gravity="top"
+            android:hint="@string/description">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editdiscuss"
+                android:id="@+id/editdescription"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="150dp"
                 android:gravity="top"
                 android:inputType="textCapSentences|textMultiLine"
                 android:maxLength="2000"
-                android:maxLines="14" />
+                android:maxLines="7" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
-            android:layout_below="@+id/discuss"
-            android:id="@+id/adddiscussbtn"
+            android:id="@+id/btnaddvideo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/description"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/dark_blue"
-            android:text="@string/add_for_discussion"/>
-    </RelativeLayout>
+            android:background="@color/black"
+            android:text="@string/add_video"
+            android:textColor="@color/white" />
 
-</FrameLayout>
+        <Button
+            android:id="@+id/btnaddoutcourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnaddvideo"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black"
+            android:text="@string/add_course"
+            android:textColor="@color/white" />
+
+</RelativeLayout>

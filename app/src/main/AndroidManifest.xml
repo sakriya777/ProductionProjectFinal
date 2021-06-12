@@ -5,6 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProductionProjectFinal"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.ForgotPassword"></activity>
+        <activity
+            android:name=".AddOutSchoolCourse"
+            android:label="@string/title_activity_add_out_school_course"
+            android:theme="@style/Theme.ProductionProjectFinal.NoActionBar"></activity>
+        <activity android:name=".Activities.ForgotPassword" />
         <activity android:name=".Activities.DataBulkAdd" />
         <activity android:name=".Activities.HomeScreen" />
         <activity android:name=".Activities.SignUp" />

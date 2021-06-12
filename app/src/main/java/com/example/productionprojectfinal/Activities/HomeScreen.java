@@ -101,10 +101,9 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         enroll = menu.findItem(R.id.enroll);
         school = menu.findItem(R.id.school_courses);
         outschool = menu.findItem(R.id.outschool_courses);
-
-
         profile = findViewById(R.id.profilelogo);
         roleText = findViewById(R.id.roletext);
+
         if (user != null) {
             profile.setVisibility(View.VISIBLE);
             userid = user.getUid();
@@ -193,11 +192,10 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         if (item.getItemId() == R.id.quiz) {
             if (user == null) {
                 Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
-            }
-            else if (role.equals("Teacher")){
+            } else if (role.equals("Teacher")) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, new TeacherQuizFragmentScreen()).addToBackStack(null).commit();
                 drawerLayout.closeDrawers();
-            }else {
+            } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuizFragmentScreen()).addToBackStack(null).commit();
                 drawerLayout.closeDrawers();
             }

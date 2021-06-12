@@ -5,10 +5,29 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.OutSchoolFragmentScreen">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Outschool" />
+        android:padding="10dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/outcourserecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_out_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/plus_96px" />
+    </RelativeLayout>
 
 </FrameLayout>

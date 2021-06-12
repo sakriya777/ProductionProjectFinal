@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/alfa_slab_one"
-            android:text="Name"
+            android:text="@string/name"
             android:textSize="20sp"
             android:textStyle="bold"/>
 

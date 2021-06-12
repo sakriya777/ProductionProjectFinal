@@ -40,4 +40,19 @@
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
     <string name="freelancer">Freelancer</string>
+    <string name="title_activity_add_out_school_course">AddOutSchoolCourse</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="add_video">Add Video</string>
+    <string name="add_course">Add Course</string>
+    <string name="send_password_reset_link">Send Password Reset Link</string>
+    <string name="profile">profile</string>
+    <string name="name">name</string>
+    <string name="comment_material">comment material</string>
+    <string name="about">About :</string>
+    <string name="about1">about</string>
+    <string name="discussion_material">discussion material</string>
+    <string name="discuss">Discuss</string>
+    <string name="add_for_discussion">Add for Discussion</string>
+    <string name="grade_10_subjects">Grade 10 Subjects</string>
 </resources>

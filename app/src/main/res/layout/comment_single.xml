@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/alfa_slab_one"
-                android:text="Name"
+                android:text="@string/name"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-10dp"
             android:padding="10dp"
-            android:text="comment material" />
+            android:text="@string/comment_material" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

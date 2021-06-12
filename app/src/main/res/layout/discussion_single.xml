@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/alfa_slab_one"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -55,14 +55,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-10dp"
                     android:padding="10dp"
-                    android:text="About : " />
+                    android:text="@string/about" />
 
                 <TextView
                     android:id="@+id/abouttext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-10dp"
-                    android:text="about" />
+                    android:text="@string/about1" />
             </LinearLayout>
 
             <TextView
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
                 android:padding="10dp"
-                android:text="Title"
+                android:text="@string/title"
                 android:textSize="20sp"/>
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
                 android:padding="10dp"
-                android:text="discussion material" />
+                android:text="@string/discussion_material" />
         </LinearLayout>
     </RelativeLayout>
 

@@ -33,16 +33,16 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alfa_slab_one"
                     android:padding="25dp"
-                    android:textSize="39dp"
+                    android:textSize="39sp"
                     android:text="@string/formal_academic"
                     android:textColor="@color/pewter" />
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:src="@drawable/mortarboard_128px"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginEnd="10dp"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -68,14 +68,14 @@
                     android:padding="25dp"
                     android:text="@string/non_formal_academic"
                     android:textColor="@color/pewter"
-                    android:textSize="39dp"/>
+                    android:textSize="39sp"/>
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:src="@drawable/laptop_64px"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginEnd="10dp"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
