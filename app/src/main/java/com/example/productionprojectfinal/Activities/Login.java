@@ -73,12 +73,19 @@ public class Login extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                        progressBar.setVisibility(View.GONE);
+                                        if(auth.getCurrentUser().isEmailVerified()){
+                                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
 
-                                        Intent intent = new Intent(Login.this, HomeScreen.class);
+                                            Intent intent = new Intent(Login.this, HomeScreen.class);
 
-                                        startActivity(intent);
+                                            startActivity(intent);
+                                        }
+                                        else{
+                                            Toast.makeText(getApplicationContext(), "Email not verified", Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
+                                        }
+
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
@@ -87,6 +94,13 @@ public class Login extends AppCompatActivity {
                             });
                 }
                 progressBar.setVisibility(View.GONE);
+            }
+        });
+
+        frgtpasswd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, ForgotPassword.class));
             }
         });
 

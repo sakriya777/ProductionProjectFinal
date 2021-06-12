@@ -141,6 +141,12 @@ public class SignUp extends AppCompatActivity {
                                     String key = dbref.push().getKey();
                                     FirebaseUser users = FirebaseAuth.getInstance().getCurrentUser();
                                     String userid = users.getUid();
+                                    users.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                            Toast.makeText(SignUp.this, "Check Email for Verification", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                     HashMap<String, String> user = new HashMap<>();
                                     user.put("key", key);
                                     user.put("lname", lnames);
@@ -157,6 +163,7 @@ public class SignUp extends AppCompatActivity {
                                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
                                                         Toast.makeText(SignUp.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
+                                                        FirebaseAuth.getInstance().signOut();
                                                         startActivity(new Intent(SignUp.this, Login.class));
                                                     } else {
                                                         Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

@@ -35,12 +35,6 @@ import java.util.Date;
 
 public class SingleChatFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     String fname;
     String lname;
     String uid;
@@ -51,6 +45,7 @@ public class SingleChatFragment extends Fragment {
     String senderRoom, recieverRoom;
     ArrayList<Messages> messagesArraylist;
     MessageAdapter messageAdapter;
+
     public SingleChatFragment() {
     }
 
@@ -59,24 +54,6 @@ public class SingleChatFragment extends Fragment {
         this.lname = lname;
         this.uid = uid;
         this.email = email;
-    }
-
-    public static SingleChatFragment newInstance(String param1, String param2) {
-        SingleChatFragment fragment = new SingleChatFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
 
