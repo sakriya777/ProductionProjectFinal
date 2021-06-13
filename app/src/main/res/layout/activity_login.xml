@@ -13,9 +13,9 @@
         android:id="@+id/logoimagesmall"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:contentDescription="@string/logo"
         android:src="@drawable/logo"
-        android:transitionName="logo_image"
-        android:contentDescription="@string/logo" />
+        android:transitionName="logo_image" />
 
     <TextView
         android:id="@+id/hellothere"
@@ -26,7 +26,7 @@
         android:text="@string/hello_there"
         android:textColor="@color/dark_blue"
         android:textSize="40sp"
-        android:transitionName="logo_text"/>
+        android:transitionName="logo_text" />
 
     <TextView
         android:id="@+id/signintoocontinue"
@@ -35,7 +35,7 @@
         android:fontFamily="@font/antic"
         android:text="@string/sign_in_to_continue"
         android:textSize="18sp"
-        android:transitionName="tag_line"/>
+        android:transitionName="tag_line" />
 
     <LinearLayout
         android:id="@+id/insidelayout"
@@ -84,7 +84,7 @@
             android:elevation="0dp"
             android:text="@string/forgot_password"
             android:textColor="@color/black"
-            android:transitionName="forget_password_btn"/>
+            android:transitionName="forget_password_btn" />
 
         <Button
             android:id="@+id/btnsignin"
@@ -95,7 +95,7 @@
             android:background="@color/black"
             android:text="@string/sign_in"
             android:textColor="@color/white"
-            android:transitionName="sign_in_btn"/>
+            android:transitionName="sign_in_btn" />
 
         <Button
             android:id="@+id/btncallsignup"
@@ -106,7 +106,8 @@
             android:elevation="0dp"
             android:text="@string/new_to_this_app_sign_up"
             android:textColor="@color/black"
-            android:transitionName="sign_up_btn"/>
+            android:transitionName="sign_up_btn" />
+
         <ProgressBar
             android:id="@+id/top_progress_bar"
             android:layout_width="wrap_content"
@@ -115,7 +116,7 @@
             android:indeterminate="false"
             android:max="100"
             android:progress="0"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </LinearLayout>
 
     <Button
@@ -127,5 +128,5 @@
         android:background="#00000000"
         android:onClick="withoutsignin"
         android:text="@string/continue_without_login"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 </LinearLayout>

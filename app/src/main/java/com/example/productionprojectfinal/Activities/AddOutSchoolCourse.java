@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal;
+package com.example.productionprojectfinal.Activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -10,6 +10,9 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.productionprojectfinal.Fragments.FirstScreenFragment;
+import com.example.productionprojectfinal.Fragments.OutSchoolFragmentScreen;
+import com.example.productionprojectfinal.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -33,11 +36,8 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -51,13 +51,15 @@ public class AddOutSchoolCourse extends AppCompatActivity {
     private static final int VIDEO_PICK_GALLERY_CODE = 100;
     private static final int VIDEO_PICK_CAMERA_CODE = 101;
     private static final int CAMERA_REQUEST_CODE = 102;
-    TextInputEditText title, description;
+    TextInputEditText title, description, related;
     VideoView videoView;
     Button addVideo, addOutCourse;
     ProgressDialog progressDialog;
 
-    String titles, descriptions, fullname, fname, lname, uid;
+    String titles, descriptions, uid, relateds;
     private String[] cameraPermissions;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private Uri videoUrl = null;
 
@@ -66,29 +68,8 @@ public class AddOutSchoolCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_out_school_course);
 
-        FirebaseUser auth = FirebaseAuth.getInstance().getCurrentUser();
-        uid = auth.getUid();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        reference.orderByChild("UID").equalTo(uid)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                        for (DataSnapshot datas : snapshot.getChildren()) {
-                            fname = datas.child("fname").getValue().toString();
-                            lname = datas.child("lname").getValue().toString();
-                        }
-                    }
-
-
-                    @Override
-                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-                    }
-                });
-
-        fullname = fname + " " + lname;
-
         title = findViewById(R.id.edittitle);
+        related = findViewById(R.id.editrelated);
         description = findViewById(R.id.editdescription);
         videoView = findViewById(R.id.videopreview);
         addOutCourse = findViewById(R.id.btnaddoutcourse);
@@ -115,11 +96,14 @@ public class AddOutSchoolCourse extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 titles = title.getText().toString();
+                relateds = related.getText().toString();
                 descriptions = description.getText().toString();
                 if (TextUtils.isEmpty(titles)) {
                     Toast.makeText(AddOutSchoolCourse.this, "Title Must Be Added", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(descriptions)) {
                     Toast.makeText(AddOutSchoolCourse.this, "Description Must Be Added", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(relateds)) {
+                    Toast.makeText(AddOutSchoolCourse.this, "Topic Must Be Added", Toast.LENGTH_SHORT).show();
                 } else if (videoUrl == null) {
                     Toast.makeText(AddOutSchoolCourse.this, "Pick a Video First", Toast.LENGTH_SHORT).show();
                 } else {
@@ -130,7 +114,6 @@ public class AddOutSchoolCourse extends AppCompatActivity {
         });
 
 
-
     }
 
     private void UploadVideoFirebase() {
@@ -139,6 +122,8 @@ public class AddOutSchoolCourse extends AppCompatActivity {
         Long timestamp = System.currentTimeMillis();
 
         String filepathandname = "Videos/" + "video " + timestamp;
+
+        uid = user.getUid();
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(filepathandname);
 
@@ -157,7 +142,7 @@ public class AddOutSchoolCourse extends AppCompatActivity {
                             hashMap.put("timestamp", "" + timestamp);
                             hashMap.put("videourl", "" + downloaduri);
                             hashMap.put("uid", "" + uid);
-                            hashMap.put("name", "" + fullname);
+                            hashMap.put("topic", "" + relateds);
 
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("videos");
                             databaseReference.child("" + timestamp)
@@ -167,6 +152,7 @@ public class AddOutSchoolCourse extends AppCompatActivity {
                                         public void onSuccess(Void unused) {
                                             progressDialog.dismiss();
                                             Toast.makeText(AddOutSchoolCourse.this, "Video Uploaded", Toast.LENGTH_SHORT).show();
+                                            AddOutSchoolCourse.this.onBackPressed();
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {

@@ -16,10 +16,6 @@
 
     </style>
 
-    <style name="NoNotification" parent="Widget.MaterialComponents.MaterialCalendar.Fullscreen">
-
-    </style>
-
     <style name="Theme.ProductionProjectFinal.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -30,7 +26,4 @@
         <item name="colorControlHighlight">@color/yellow</item>
     </style>
 
-    <style name="Theme.ProductionProjectFinal.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.ProductionProjectFinal.PopupOverlay" parent="ThemeOverlay.AppCompat" />
 </resources>

@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:text="@string/tagline"
-        android:textColor="@color/dark_blue"/>
+        android:textColor="@color/dark_blue" />
 
     <TextView
         android:id="@+id/menu_title"
@@ -23,14 +23,14 @@
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/Title"
         android:textColor="@color/dark_blue"
-        android:textSize="24sp"/>
+        android:textSize="24sp" />
 
     <ImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_above="@id/menu_title"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/logo" />
+        android:contentDescription="@string/logo"
+        android:src="@drawable/logo" />
 
     <ImageView
         android:layout_width="200dp"
@@ -38,6 +38,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="-25dp"
-        android:src="@drawable/realted2"
-        android:contentDescription="@string/related_picture" />
+        android:contentDescription="@string/related_picture"
+        android:src="@drawable/realted2" />
 </RelativeLayout>

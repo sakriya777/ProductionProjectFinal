@@ -38,6 +38,7 @@
 
 
                     <Button
+                        android:id="@+id/getgrade6"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -45,10 +46,10 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 6"
-                        android:id="@+id/getgrade6"
                         android:textSize="20sp" />
 
                     <Button
+                        android:id="@+id/getgrade7"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -56,10 +57,10 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 7"
-                        android:id="@+id/getgrade7"
                         android:textSize="20sp" />
 
                     <Button
+                        android:id="@+id/getgrade8"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -67,7 +68,6 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 8"
-                        android:id="@+id/getgrade8"
                         android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -101,6 +101,7 @@
 
 
                     <Button
+                        android:id="@+id/getgrade9"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -108,10 +109,10 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 9"
-                        android:id="@+id/getgrade9"
                         android:textSize="25sp" />
 
                     <Button
+                        android:id="@+id/getgrade10"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -119,7 +120,6 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 10"
-                        android:id="@+id/getgrade10"
                         android:textSize="25sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -153,6 +153,7 @@
 
 
                     <Button
+                        android:id="@+id/getgrade11"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -160,10 +161,10 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 11"
-                        android:id="@+id/getgrade11"
                         android:textSize="25sp" />
 
                     <Button
+                        android:id="@+id/getgrade12"
                         android:layout_width="0dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
@@ -171,7 +172,6 @@
                         android:fontFamily="@font/alfa_slab_one"
                         android:padding="10dp"
                         android:text="Grade 12"
-                        android:id="@+id/getgrade12"
                         android:textSize="25sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -184,7 +184,6 @@
             android:layout_height="wrap_content"
             android:text="Add Bulk Data" />
     </LinearLayout>
-
 
 
 </FrameLayout>

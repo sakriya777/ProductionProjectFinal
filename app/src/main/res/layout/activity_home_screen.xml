@@ -29,18 +29,18 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/profilelogo"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/user_male_60px"
-            android:layout_marginTop="-50dp"
             android:layout_gravity="end"
+            android:layout_marginTop="-50dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="@string/profile"
-            android:visibility="gone"/>
+            android:src="@drawable/user_male_60px"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/roletext"

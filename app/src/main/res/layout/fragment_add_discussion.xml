@@ -15,20 +15,22 @@
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:gravity="center"
-            android:text="@string/about"/>
+            android:text="@string/about" />
+
         <Spinner
-            android:layout_toEndOf="@+id/about"
             android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="45dp"
+            android:layout_toEndOf="@+id/about">
 
         </Spinner>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@+id/spinner"
             android:id="@+id/title"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner"
             android:layout_marginEnd="5dp"
             android:hint="@string/title">
 
@@ -40,14 +42,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@+id/title"
             android:id="@+id/discuss"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
             android:layout_marginEnd="5dp"
-            android:hint="@string/discuss"
-            android:gravity="top">
+            android:gravity="top"
+            android:hint="@string/discuss">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editdiscuss"
@@ -58,15 +60,16 @@
                 android:maxLength="2000"
                 android:maxLines="14" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
-            android:layout_below="@+id/discuss"
             android:id="@+id/adddiscussbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/discuss"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@color/dark_blue"
-            android:text="@string/add_for_discussion"/>
+            android:text="@string/add_for_discussion" />
     </RelativeLayout>
 
 </FrameLayout>

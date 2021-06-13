@@ -22,10 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProductionProjectFinal"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Activities.SingleVideoActivity"></activity>
         <activity
-            android:name=".AddOutSchoolCourse"
+            android:name=".Activities.AddOutSchoolCourse"
             android:label="@string/title_activity_add_out_school_course"
-            android:theme="@style/Theme.ProductionProjectFinal.NoActionBar"></activity>
+            android:theme="@style/Theme.ProductionProjectFinal.NoActionBar" />
         <activity android:name=".Activities.ForgotPassword" />
         <activity android:name=".Activities.DataBulkAdd" />
         <activity android:name=".Activities.HomeScreen" />

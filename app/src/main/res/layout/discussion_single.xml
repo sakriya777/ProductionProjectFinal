@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/discussone"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="7dp"
-    android:id="@+id/discussone"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
@@ -72,7 +72,7 @@
                 android:layout_marginTop="-10dp"
                 android:padding="10dp"
                 android:text="@string/title"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/discussiontext"

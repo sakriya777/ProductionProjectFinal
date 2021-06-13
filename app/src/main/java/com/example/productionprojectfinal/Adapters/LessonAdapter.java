@@ -32,6 +32,8 @@ public class LessonAdapter extends FirebaseRecyclerAdapter<LessonModel, LessonAd
         String content = model.getContent();
         String lesson = model.getLesson();
 
+
+
         Log.i("Lesson Adapter", names);
 
         holder.name.setText(names);
