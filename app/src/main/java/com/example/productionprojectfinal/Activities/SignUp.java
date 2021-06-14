@@ -123,7 +123,7 @@ public class SignUp extends AppCompatActivity {
                 if (!validateFirstName() | !validateLastName() | !validateEmail() | !validateInstitution() | !validatePassword()) {
                     return;
                 }
-                String fnames = firstname.getEditText().getText().toString();
+                    String fnames = firstname.getEditText().getText().toString();
                 String lnames = lastname.getEditText().getText().toString();
                 String emails = email.getEditText().getText().toString();
                 String instituitions = institution.getEditText().getText().toString();

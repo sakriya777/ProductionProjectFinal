@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.FirstScreen;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.productionprojectfinal.Fragments.OutSchool.OutSchoolFragmentScreen;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.SchoolFragmentScreen;
 import com.example.productionprojectfinal.R;
 
 

@@ -10,8 +10,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.example.productionprojectfinal.Fragments.FirstScreenFragment;
-import com.example.productionprojectfinal.Fragments.OutSchoolFragmentScreen;
 import com.example.productionprojectfinal.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

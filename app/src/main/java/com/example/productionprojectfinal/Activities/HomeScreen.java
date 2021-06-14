@@ -22,12 +22,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.productionprojectfinal.Fragments.Chat.ChatFragmentScreen;
 import com.example.productionprojectfinal.Fragments.Discussion.DiscussionFragmentScreen;
-import com.example.productionprojectfinal.Fragments.FirstScreenFragment;
-import com.example.productionprojectfinal.Fragments.OutSchoolFragmentScreen;
-import com.example.productionprojectfinal.Fragments.ProfileFragmentScreen;
-import com.example.productionprojectfinal.Fragments.QuizFragmentScreen;
-import com.example.productionprojectfinal.Fragments.SchoolFragmentScreen;
-import com.example.productionprojectfinal.Fragments.TeacherQuizFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Enroll.EnrollFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Enroll.TeacherEnrollFragmentScreen;
+import com.example.productionprojectfinal.Fragments.FirstScreen.FirstScreenFragment;
+import com.example.productionprojectfinal.Fragments.OutSchool.OutSchoolFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Profile.ProfileFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Quiz.QuizFragmentScreen;
+import com.example.productionprojectfinal.Fragments.SchoolFragments.SchoolFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Quiz.TeacherQuizFragmentScreen;
 import com.example.productionprojectfinal.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -180,6 +182,17 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         if (item.getItemId() == R.id.school_courses) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new SchoolFragmentScreen()).addToBackStack(null).commit();
             drawerLayout.closeDrawers();
+        }
+        if (item.getItemId() == R.id.enroll) {
+            if (user == null) {
+                Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+            } else if (role.equals("Teacher")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new TeacherEnrollFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new EnrollFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }
         }
         if (item.getItemId() == R.id.outschool_courses) {
             if (user == null) {

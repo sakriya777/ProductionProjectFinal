@@ -1,4 +1,4 @@
-package com.example.productionprojectfinal.Fragments;
+package com.example.productionprojectfinal.Fragments.OutSchool;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,11 +35,8 @@ public class OutSchoolFragmentScreen extends Fragment {
     String role;
     VideoAdapter videoAdapter;
 
-
     public OutSchoolFragmentScreen() {
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,8 +60,6 @@ public class OutSchoolFragmentScreen extends Fragment {
         String userid = user.getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("videos");
         reference.orderByChild("UID").equalTo(userid).addListenerForSingleValueEvent(new ValueEventListener() {
-
-
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot datas : snapshot.getChildren()) {
@@ -77,19 +72,16 @@ public class OutSchoolFragmentScreen extends Fragment {
                                startActivity(new Intent(getContext(), AddOutSchoolCourse.class));
                             }
                         });
-                    } else if (role.equals("Student")) {
+                    } else {
                         addCourse.setVisibility(View.GONE);
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
             }
         });
         return view;
-
     }
 
     @Override
