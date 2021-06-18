@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.productionprojectfinal.Fragments.Enroll.EnrollClassEnterCredentials;
 import com.example.productionprojectfinal.Fragments.Enroll.EnrollFragmentScreen;
+import com.example.productionprojectfinal.Fragments.Enroll.VideoCallOrQuizFragment;
 import com.example.productionprojectfinal.Fragments.Quiz.QuizFragmentScreen;
 import com.example.productionprojectfinal.Models.EnrollStudentsModel;
 import com.example.productionprojectfinal.R;
@@ -51,28 +52,13 @@ public class StudentViewEnrollAdapter extends FirebaseRecyclerAdapter<EnrollStud
 
                     holder.cardtitle.setText(classname);
                     holder.cardid.setText("Class id" + classid);
-                    holder.cardpassword.setText(classdescription + "\nClick to start Quiz");
+                    holder.cardpassword.setText(classdescription);
 
                     holder.classcard.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                            new AlertDialog.Builder(activity)
-                                    .setTitle("Confirmation")
-                                    .setMessage("You are About to start a Quiz Are you sure?")
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-
-                                        public void onClick(DialogInterface dialog, int whichButton) {
-                                            Toast.makeText(activity, "Time starts Now", Toast.LENGTH_SHORT).show();
-                                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuizFragmentScreen(classid)).addToBackStack(null).commit();
-                                        }})
-                                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Toast.makeText(activity, "Nayy", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }).show();
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new VideoCallOrQuizFragment(classid)).addToBackStack(null).commit();
                         }
                     });
                 }

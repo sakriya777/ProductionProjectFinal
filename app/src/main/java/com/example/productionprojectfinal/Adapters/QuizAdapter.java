@@ -1,12 +1,15 @@
 package com.example.productionprojectfinal.Adapters;
 
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,10 +27,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.TestOnly;
+
+import java.util.Random;
 
 public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.myViewHolder> {
 
     String role;
+    int answer;
     public QuizAdapter(@NonNull @NotNull FirebaseRecyclerOptions<QuizModel> options) {
         super(options);
     }
@@ -35,11 +42,36 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
     @Override
     protected void onBindViewHolder(@NonNull @NotNull myViewHolder holder, int position, @NonNull @NotNull QuizModel model) {
         holder.question.setText(model.getQuestion());
-        holder.option1.setText(model.getOption1());
-        holder.option2.setText(model.getOption2());
-        holder.option3.setText(model.getOption3());
-        holder.option4.setText(model.getOption4());
 
+        Random r = new Random();
+        int i = r.nextInt(4 - 1) +1;
+
+        if (i==1){
+            holder.option1.setText(model.getOption1());
+            holder.option2.setText(model.getOption2());
+            holder.option3.setText(model.getOption3());
+            holder.option4.setText(model.getOption4());
+        }
+        else if (i==2){
+            holder.option1.setText(model.getOption2());
+            holder.option2.setText(model.getOption4());
+            holder.option3.setText(model.getOption1());
+            holder.option4.setText(model.getOption3());
+        }
+        else if (i==3){
+            holder.option1.setText(model.getOption4());
+            holder.option2.setText(model.getOption1());
+            holder.option3.setText(model.getOption2());
+            holder.option4.setText(model.getOption3());
+        }
+        else if (i==4){
+            holder.option1.setText(model.getOption3());
+            holder.option2.setText(model.getOption2());
+            holder.option3.setText(model.getOption4());
+            holder.option4.setText(model.getOption1());
+        }
+
+        holder.options.getCheckedRadioButtonId();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
@@ -78,6 +110,7 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
     public class myViewHolder extends RecyclerView.ViewHolder{
         TextView question;
         RadioGroup options;
+        Button completequiz;
         RadioButton option1, option2, option3, option4;
         public myViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -89,7 +122,8 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
             option2 = itemView.findViewById(R.id.singleoption2);
             option3 = itemView.findViewById(R.id.singleoption3);
             option4 = itemView.findViewById(R.id.singleoption4);
-
+            
+            completequiz = itemView.findViewById(R.id.completequiz);
         }
     }
 }

@@ -17,12 +17,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
-        android:label="@string/Title"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProductionProjectFinal"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.SingleVideoActivity"></activity>
+        <activity android:name=".Activities.SingleVideoActivity" />
         <activity
             android:name=".Activities.AddOutSchoolCourse"
             android:label="@string/title_activity_add_out_school_course"

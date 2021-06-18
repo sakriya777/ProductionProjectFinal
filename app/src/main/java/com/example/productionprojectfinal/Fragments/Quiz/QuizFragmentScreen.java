@@ -10,9 +10,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.productionprojectfinal.Adapters.QuizAdapter;
@@ -40,6 +42,10 @@ public class QuizFragmentScreen extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_quiz_screen, container, false);
 
+        TextView timer = view.findViewById(R.id.timer);
+
+        reverseTimer(600, timer);
+
         recyclerView = view.findViewById(R.id.studentquizrecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -49,6 +55,7 @@ public class QuizFragmentScreen extends Fragment {
                         .build();
         quizAdapter = new QuizAdapter(options);
         recyclerView.setAdapter(quizAdapter);
+
         return view;
     }
     @Override
@@ -61,5 +68,22 @@ public class QuizFragmentScreen extends Fragment {
     public void onStop() {
         super.onStop();
         quizAdapter.stopListening();
+    }
+    public void reverseTimer(int Seconds,final TextView tv){
+
+        new CountDownTimer(Seconds* 1000+1000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                int seconds = (int) (millisUntilFinished / 1000);
+                int minutes = seconds / 60;
+                seconds = seconds % 60;
+                tv.setText("TIME : " + String.format("%02d", minutes)
+                        + ":" + String.format("%02d", seconds));
+            }
+
+            public void onFinish() {
+                tv.setText("Completed");
+            }
+        }.start();
     }
 }
