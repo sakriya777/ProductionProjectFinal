@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Quiz.TeacherQuizFragmentScreen">
+    android:padding="10dp"
+    tools:context=".Fragments.Enroll.TeacherEnrollFragmentScreen"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/quizrecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Teacher quiz" />
+        android:layout_height="wrap_content"
+        android:layout_weight="50"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/addquizbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/dark_blue"
+            android:text="Start A Quiz" />
 
-</FrameLayout>
+        <Button
+            android:id="@+id/removeallquestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/red"
+            android:text="Remove all questions"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

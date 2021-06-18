@@ -6,9 +6,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.productionprojectfinal.Fragments.Enroll.EnrollClassEnterCredentials;
+import com.example.productionprojectfinal.Fragments.Enroll.EnrollTeacherDetails;
 import com.example.productionprojectfinal.Models.ClassModel;
 import com.example.productionprojectfinal.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -40,6 +43,14 @@ public class ClassAdapter extends FirebaseRecyclerAdapter<ClassModel, ClassAdapt
             holder.cardtitle.setText(classname);
             holder.cardid.setText("Class ID:"+classid);
             holder.cardpassword.setText("Password:"+classpassword);
+
+            holder.classcard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new EnrollTeacherDetails(classid)).addToBackStack(null).commit();
+                }
+            });
         }else{
             holder.classcard.setVisibility(View.GONE);
             holder.classcard.setLayoutParams(new RecyclerView.LayoutParams(0, 0));

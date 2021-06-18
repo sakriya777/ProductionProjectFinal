@@ -109,6 +109,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         if (user != null) {
             profile.setVisibility(View.VISIBLE);
             userid = user.getUid();
+            quiz.setVisible(false);
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
             reference.orderByChild("UID").equalTo(userid).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -120,6 +121,10 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                             enroll.setVisible(false);
                             quiz.setVisible(false);
                             school.setVisible(false);
+                        }
+                        if (role.equals("Teacher")){
+                            enroll.setTitle("Enroll");
+                            quiz.setVisible(false);
                         }
                     }
                 }

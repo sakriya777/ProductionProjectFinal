@@ -53,7 +53,7 @@ public class TeacherEnrollFragmentScreen extends Fragment {
 
         FirebaseRecyclerOptions<ClassModel> options =
                 new FirebaseRecyclerOptions.Builder<ClassModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("classes"), ClassModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("classes").child("details"), ClassModel.class)
                         .build();
 
         classAdapter = new ClassAdapter(options);

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.productionprojectfinal.Activities.AddOutSchoolCourse;
 import com.example.productionprojectfinal.Adapters.CourseAdapter;
@@ -56,9 +57,9 @@ public class OutSchoolFragmentScreen extends Fragment {
         videoRecycler.setAdapter(videoAdapter);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FloatingActionButton addCourse = view.findViewById(R.id.add_out_course);
+        FloatingActionButton addCourse = view.findViewById(R.id.add_out_courses);
         String userid = user.getUid();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("videos");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
         reference.orderByChild("UID").equalTo(userid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -69,7 +70,8 @@ public class OutSchoolFragmentScreen extends Fragment {
                         addCourse.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                               startActivity(new Intent(getContext(), AddOutSchoolCourse.class));
+                               Intent intent = new Intent(getContext(), AddOutSchoolCourse.class);
+                               startActivity(intent);
                             }
                         });
                     } else {

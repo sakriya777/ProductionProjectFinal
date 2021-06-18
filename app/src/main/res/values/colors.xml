@@ -10,5 +10,7 @@
     <color name="yellow">#FAD02C</color>
     <color name="blue_gray">#90ADC6</color>
     <color name="light_white">#EDEEEE</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#007F15</color>
 
 </resources>

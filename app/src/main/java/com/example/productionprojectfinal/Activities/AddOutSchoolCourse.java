@@ -96,7 +96,10 @@ public class AddOutSchoolCourse extends AppCompatActivity {
                 titles = title.getText().toString();
                 relateds = related.getText().toString();
                 descriptions = description.getText().toString();
-                if (TextUtils.isEmpty(titles)) {
+                if (TextUtils.isEmpty(titles) & TextUtils.isEmpty(descriptions) & TextUtils.isEmpty(relateds) & videoUrl == null){
+                    Toast.makeText(AddOutSchoolCourse.this, "Enter all the Fields", Toast.LENGTH_SHORT).show();
+                }
+                else if (TextUtils.isEmpty(titles)) {
                     Toast.makeText(AddOutSchoolCourse.this, "Title Must Be Added", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(descriptions)) {
                     Toast.makeText(AddOutSchoolCourse.this, "Description Must Be Added", Toast.LENGTH_SHORT).show();
