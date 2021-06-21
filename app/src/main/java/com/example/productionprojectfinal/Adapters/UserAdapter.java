@@ -31,6 +31,7 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
         String currentuser = auth.getCurrentUser().getUid();
 
         holder.name.setText(model.getFname() + " " + model.getLname());
+        holder.role.setText(model.getRole());
 
         if (currentuser.equals(model.getUID())){
             holder.chatone.setVisibility(View.GONE);
@@ -57,12 +58,13 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Users, UserAdapter.myVi
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
+        TextView name, role;
         CardView chatone;
         RecyclerView recyclerView;
 
         public myViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
+            role = itemView.findViewById(R.id.userrole);
             name = itemView.findViewById(R.id.username);
             chatone = itemView.findViewById(R.id.chatone);
             recyclerView = itemView.findViewById(R.id.chatrecycler);

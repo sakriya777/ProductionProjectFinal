@@ -53,6 +53,7 @@ public class DiscussAdapter extends FirebaseRecyclerAdapter<Discuss, DiscussAdap
                     lname = datas.child("lname").getValue().toString();
                     fullname = fname+" "+lname;
                     holder.name.setText(fullname);
+                    holder.role.setText(datas.child("role").getValue().toString());
                     holder.discussone.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -85,7 +86,7 @@ public class DiscussAdapter extends FirebaseRecyclerAdapter<Discuss, DiscussAdap
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView name, about, discussion, title;
+        TextView name, about, discussion, title, role;
 
         CardView discussone;
         public myViewHolder(@NonNull @NotNull View itemView) {
@@ -94,6 +95,7 @@ public class DiscussAdapter extends FirebaseRecyclerAdapter<Discuss, DiscussAdap
             about = itemView.findViewById(R.id.abouttext);
             title = itemView.findViewById(R.id.titletext);
             discussion = itemView.findViewById(R.id.discussiontext);
+            role = itemView.findViewById(R.id.disscusserrole);
 
             discussone = itemView.findViewById(R.id.discussone);
 

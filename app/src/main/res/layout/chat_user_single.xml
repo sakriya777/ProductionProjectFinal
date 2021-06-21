@@ -21,16 +21,26 @@
             app:civ_shadow="true"
             app:civ_shadow_color="#898989" />
 
-
-        <TextView
-            android:id="@+id/username"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="@string/name"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/alfa_slab_one"
+                android:text="@string/name"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/userrole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/role"/>
+        </LinearLayout>
 
 
     </LinearLayout>

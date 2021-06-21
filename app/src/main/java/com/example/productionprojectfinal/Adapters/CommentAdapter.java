@@ -45,6 +45,7 @@ public class CommentAdapter extends FirebaseRecyclerAdapter<Comment, CommentAdap
                     fullname = fname + " " + lname;
                     holder.comment.setText(comment);
                     holder.name.setText(fullname);
+                    holder.role.setText(datas.child("role").getValue().toString());
                 }
             }
 
@@ -66,12 +67,13 @@ public class CommentAdapter extends FirebaseRecyclerAdapter<Comment, CommentAdap
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView name, comment;
+        TextView name, comment, role;
 
         public myViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.commentowner);
             comment = itemView.findViewById(R.id.commenttext);
+            role = itemView.findViewById(R.id.commenterrole);
         }
     }
 }
