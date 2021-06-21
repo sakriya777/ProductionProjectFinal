@@ -88,9 +88,11 @@ public class EnrollClassEnterCredentials extends Fragment {
                                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new EnrollFragmentScreen()).addToBackStack(null).commit();
 
                                 }
+                                else if (!dbid.equals(ids) | !dbpassword.equals(passwords)){
+                                    Toast.makeText(getContext(), "Code/ Password Not Matched", Toast.LENGTH_SHORT).show();
+                                }
                                 else{
-                                    Toast.makeText(getContext(), "Error Occured", Toast.LENGTH_SHORT).show();
-
+                                    Toast.makeText(getContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }

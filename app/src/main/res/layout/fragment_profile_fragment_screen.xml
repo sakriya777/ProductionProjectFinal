@@ -1,20 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Profile.ProfileFragmentScreen">
+    tools:context=".Fragments.Profile.ProfileFragmentScreen"
+    android:padding="12dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/editbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="profile" />
+        android:src="@drawable/edit"
+        android:layout_alignParentRight="true"/>
 
-</FrameLayout>
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/image"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="90dp"
+        android:src="@drawable/card_background_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:orientation="horizontal"
+        android:id="@+id/linearname">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="First Name"
+            android:paddingEnd="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fnameedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Last Name"
+            android:paddingStart="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lnameedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearname"
+        android:hint="Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailedit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/role"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:hint="Role">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/roleedit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/instituition"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/role"
+        android:hint="Instituition">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/instituitionedit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/submitedit"
+        android:layout_below="@id/instituition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/dark_blue"
+        android:text="Edit Profile"/>
+</RelativeLayout>

@@ -106,6 +106,15 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         profile = findViewById(R.id.profilelogo);
         roleText = findViewById(R.id.roletext);
 
+
+        ImageView profile = findViewById(R.id.profilelogo);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragmentScreen()).addToBackStack(null).commit();
+            }
+        });
+
         if (user != null) {
             profile.setVisibility(View.VISIBLE);
             userid = user.getUid();

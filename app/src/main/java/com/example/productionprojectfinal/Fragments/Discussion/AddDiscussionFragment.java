@@ -40,36 +40,14 @@ public class AddDiscussionFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_add_discussion, container, false);
 
-        Spinner spinner = view.findViewById(R.id.spinner);
-        TextInputEditText titlea, discussa;
+        TextInputEditText titlea, discussa, about;
 
         Button addDiscussion = view.findViewById(R.id.adddiscussbtn);
         titlea = view.findViewById(R.id.edittitle);
         discussa = view.findViewById(R.id.editdiscuss);
-
-        final String[] paths = {"Social", "Science", "Mathematics", "Biology", "History"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, paths);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        final String[] about = new String[1];
+        about = view.findViewById(R.id.spinner);
 
 
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                about[0] = spinner.getSelectedItem().toString();
-                Toast.makeText(getContext(), about[0],
-                        Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         addDiscussion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +55,7 @@ public class AddDiscussionFragment extends Fragment {
 
                 String titletxt = titlea.getText().toString();
                 String discusstxt = discussa.getText().toString();
+                String abouttxt = about.getText().toString();
 
                 DatabaseReference refrence = FirebaseDatabase.getInstance().getReference();
 
@@ -87,7 +66,7 @@ public class AddDiscussionFragment extends Fragment {
 
 
                 HashMap<String, String> user = new HashMap<>();
-                user.put("about", about[0]);
+                user.put("about", abouttxt);
                 user.put("title", titletxt);
                 user.put("discuss", discusstxt);
                 user.put("id",id);
