@@ -4,28 +4,38 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.productionprojectfinal.Fragments.Quiz.QuizFragmentScreen;
+import com.example.productionprojectfinal.Models.QuizModel;
 import com.example.productionprojectfinal.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.NotNull;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class VideoCallOrQuizFragment extends Fragment {
 
     String classid;
-
+    public static ArrayList<QuizModel> listofquestions = new ArrayList<>();
     public VideoCallOrQuizFragment() {
     }
 
@@ -64,6 +74,31 @@ public class VideoCallOrQuizFragment extends Fragment {
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DatabaseReference reference =  FirebaseDatabase.getInstance().getReference("classes").child("quiz").child(classid);
+
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            QuizModel quizModel = dataSnapshot.getValue(QuizModel.class);
+                            Log.i("working", dataSnapshot.getKey());
+
+                            String questions = dataSnapshot.child("question").getValue().toString();
+                            String options1 = dataSnapshot.child("option1").getValue().toString();
+                            String options2 = dataSnapshot.child("option2").getValue().toString();
+                            String options3 = dataSnapshot.child("option3").getValue().toString();
+                            String options4 = dataSnapshot.child("option4").getValue().toString();
+                            String answers = dataSnapshot.child("answer").getValue().toString();
+                            listofquestions.add(new QuizModel(questions, options1, options2, options3, options4, answers));
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 new AlertDialog.Builder(activity)
                         .setTitle("Confirmation")

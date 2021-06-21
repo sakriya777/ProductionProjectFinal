@@ -31,33 +31,33 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical">
-                <RadioButton
-                    android:id="@+id/singleoption1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Option 1" />
+            <RadioButton
+                android:id="@+id/singleoption1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 1" />
 
-                <RadioButton
-                    android:id="@+id/singleoption2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Option 2" />
+            <RadioButton
+                android:id="@+id/singleoption2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 2" />
 
-                <RadioButton
-                    android:id="@+id/singleoption3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Option 3" />
+            <RadioButton
+                android:id="@+id/singleoption3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 3" />
 
-                <RadioButton
-                    android:id="@+id/singleoption4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Option 4" />
+            <RadioButton
+                android:id="@+id/singleoption4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 4" />
         </RadioGroup>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

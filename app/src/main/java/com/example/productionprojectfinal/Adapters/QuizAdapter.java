@@ -99,14 +99,6 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
 
             }
         });
-
-        holder.option1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String answer = holder.option1.getText().toString();
-            }
-        });
-
     }
 
     @NonNull
@@ -120,7 +112,7 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
     @NotNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_question, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlequestion, parent, false);
 
         return new QuizAdapter.myViewHolder(view);
     }

@@ -77,6 +77,7 @@ public class AddQuizFragment extends Fragment {
                     questionmap.put("option2", option2);
                     questionmap.put("option3", option3);
                     questionmap.put("option4", option4);
+                    questionmap.put("answer", option1);
 
                     DatabaseReference databaseReference;
 

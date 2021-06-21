@@ -1,30 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Quiz.QuizFragmentScreen"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".Fragments.Quiz.QuizFragmentScreen">
+
     <TextView
+        android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/timer"
-        android:text="time"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"/>
+        android:layout_marginEnd="10dp"
+        android:text="time" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ques"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/timer"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/quesstudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="question" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/optionscard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timer"
-        android:id="@+id/studentquizrecycler"/>
+        android:layout_below="@id/ques"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="20dp">
+
+        <RadioGroup
+            android:id="@+id/optionsgroup"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/singleopt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 1" />
+
+            <RadioButton
+                android:id="@+id/singleopt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 2" />
+
+            <RadioButton
+                android:id="@+id/singleopt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 3" />
+
+            <RadioButton
+                android:id="@+id/singleopt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Option 4" />
+        </RadioGroup>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/nextquestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/optionscard"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/green"
+        android:text="Next" />
+
+    <Button
         android:id="@+id/completequiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Complete Quiz"/>
+        android:text="Complete Quiz" />
 
 
 </RelativeLayout>

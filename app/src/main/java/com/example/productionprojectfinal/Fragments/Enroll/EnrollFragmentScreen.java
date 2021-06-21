@@ -47,6 +47,7 @@ public class EnrollFragmentScreen extends Fragment {
         enroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new EnrollClassEnterCredentials()).addToBackStack(null).commit();
             }
