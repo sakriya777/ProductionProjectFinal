@@ -5,8 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Enroll.TeacherEnrollFragmentScreen"
     android:padding="10dp">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Classes"
+        android:textSize="16sp"
+        android:fontFamily="@font/spartan_regular"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/classrecycler"/>

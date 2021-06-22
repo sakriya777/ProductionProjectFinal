@@ -73,7 +73,6 @@ public class SingleDiscussionFragment extends Fragment {
         abouttxt.setText(about);
         titletxt.setText(title);
 
-        Log.i("comment", "comment should be here");
         RecyclerView commentrecyclers;
         commentrecyclers = view.findViewById(R.id.commentrecycler);
         commentrecyclers.setLayoutManager(new LinearLayoutManager(getContext()));

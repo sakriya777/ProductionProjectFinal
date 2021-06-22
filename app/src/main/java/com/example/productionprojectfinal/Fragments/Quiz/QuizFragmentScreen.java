@@ -43,7 +43,7 @@ public class QuizFragmentScreen extends Fragment {
     RadioGroup options;
     RadioButton option1, option2, option3, option4;
     Button nextquestion, completequiz;
-    int checked = 0, correctans = 0, incorrectans = 0, index = 0;
+    int checked = 0, correctans = 0, incorrectans = 0, index = 0, totalquestions = 0;
 
     public QuizFragmentScreen() {
     }
@@ -66,13 +66,13 @@ public class QuizFragmentScreen extends Fragment {
         option4 = view.findViewById(R.id.singleopt4);
 
         nextquestion = view.findViewById(R.id.nextquestion);
-        completequiz = view.findViewById(R.id.completequiz);
+        //completequiz = view.findViewById(R.id.completequiz);
 
         TextView timer = view.findViewById(R.id.timer);
 
         reverseTimer(600, timer);
 
-        Log.i("size aray", "" + listofquestions.size());
+        totalquestions = listofquestions.size();
 
         quesans = listofquestions;
         quizModelClass = quesans.get(index);
@@ -99,7 +99,7 @@ public class QuizFragmentScreen extends Fragment {
                         } else {
                             //quiz complete
                             //Toast.makeText(getContext(), "Corrext:" + correctans + "Incorrect" + incorrectans, Toast.LENGTH_SHORT).show();
-                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuizCompleteFragment(correctans, incorrectans)).addToBackStack(null).commit();
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuizCompleteFragment(correctans, incorrectans, totalquestions, classid)).addToBackStack(null).commit();
 
                         }
                     } else {
@@ -111,7 +111,8 @@ public class QuizFragmentScreen extends Fragment {
                             SetAllData();
                         } else {
                             //quiz complete
-                            Toast.makeText(getContext(), "Corrext:" + correctans + "Incorrect" + incorrectans, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getContext(), "Corrext:" + correctans + "Incorrect" + incorrectans, Toast.LENGTH_SHORT).show();
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuizCompleteFragment(correctans, incorrectans, totalquestions, classid)).addToBackStack(null).commit();
                         }
                     }
                 }

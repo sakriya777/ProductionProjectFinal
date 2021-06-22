@@ -3,19 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Enroll.ViewStudentDetailsFragment">
-
+    tools:context=".Fragments.Enroll.ViewStudentResultsFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Students Enrolled"
+        android:text="Student Quiz Result"
         android:textSize="16sp"
         android:fontFamily="@font/spartan_regular"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="30dp"
-        android:id="@+id/classenrollsrecycler"
+        android:id="@+id/resultsrecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

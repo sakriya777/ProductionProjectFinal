@@ -42,13 +42,6 @@
             android:src="@drawable/user_male_60px"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/roletext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/antic"
-            android:textSize="15sp" />
-
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"

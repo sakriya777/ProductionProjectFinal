@@ -41,6 +41,7 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
     String role;
     int answer;
     AppCompatActivity activity;
+
     public QuizAdapter(@NonNull @NotNull FirebaseRecyclerOptions<QuizModel> options) {
         super(options);
     }
@@ -134,7 +135,7 @@ public class QuizAdapter extends FirebaseRecyclerAdapter<QuizModel, QuizAdapter.
             option3 = itemView.findViewById(R.id.singleoption3);
             option4 = itemView.findViewById(R.id.singleoption4);
 
-            completequiz = itemView.findViewById(R.id.completequiz);
+            //completequiz = itemView.findViewById(R.id.completequiz);
         }
     }
 }

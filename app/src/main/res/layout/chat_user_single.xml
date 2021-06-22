@@ -38,8 +38,7 @@
             <TextView
                 android:id="@+id/userrole"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/role"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
 

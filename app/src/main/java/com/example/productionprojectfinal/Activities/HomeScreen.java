@@ -104,7 +104,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         school = menu.findItem(R.id.school_courses);
         outschool = menu.findItem(R.id.outschool_courses);
         profile = findViewById(R.id.profilelogo);
-        roleText = findViewById(R.id.roletext);
+        //roleText = findViewById(R.id.roletext);
 
 
         ImageView profile = findViewById(R.id.profilelogo);
@@ -125,7 +125,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                 public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                     for (DataSnapshot datas : snapshot.getChildren()) {
                         role = datas.child("role").getValue().toString();
-                        roleText.setText(role);
+                        //roleText.setText(role);
                         if (role.equals("Freelancer")) {
                             enroll.setVisible(false);
                             quiz.setVisible(false);

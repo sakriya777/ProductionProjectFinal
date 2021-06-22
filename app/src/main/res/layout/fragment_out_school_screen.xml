@@ -4,8 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.OutSchool.OutSchoolFragmentScreen">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Out School Courses Videos"
+        android:textSize="16sp"
+        android:fontFamily="@font/spartan_regular"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"/>
     <RelativeLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp">
@@ -27,7 +35,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/plus_96px" />
+            android:src="@drawable/plus_96px"
+            android:contentDescription="TODO" />
     </RelativeLayout>
 
 </FrameLayout>

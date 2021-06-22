@@ -16,26 +16,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/replay_10" />
+            android:src="@drawable/replay_10"
+            android:contentDescription="TODO" />
 
         <ImageView
             android:id="@+id/exo_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/play" />
+            android:src="@drawable/play"
+            android:contentDescription="TODO" />
 
         <ImageView
             android:id="@+id/exo_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/pause" />
+            android:src="@drawable/pause"
+            android:contentDescription="TODO" />
 
         <ImageView
             android:id="@+id/exo_ffwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:src="@drawable/forward_10" />
+            android:src="@drawable/forward_10"
+            android:contentDescription="TODO" />
     </LinearLayout>
 
     <LinearLayout

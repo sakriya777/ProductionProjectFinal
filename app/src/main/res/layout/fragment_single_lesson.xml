@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/spartan_regular"
             android:text="@string/hello_blank_fragment"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
     </ScrollView>
 
 

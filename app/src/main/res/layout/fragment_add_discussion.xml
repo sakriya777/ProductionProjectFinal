@@ -4,10 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.Discussion.AddDiscussionFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Discussion"
+        android:textSize="16sp"
+        android:fontFamily="@font/spartan_regular"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
         android:padding="10dp">
 
 

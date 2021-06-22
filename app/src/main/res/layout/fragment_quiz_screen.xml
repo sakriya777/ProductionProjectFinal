@@ -88,12 +88,12 @@
         android:backgroundTint="@color/green"
         android:text="Next" />
 
-    <Button
-        android:id="@+id/completequiz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Complete Quiz" />
+<!--    <Button-->
+<!--        android:id="@+id/completequiz"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:text="Complete Quiz" />-->
 
 
 </RelativeLayout>

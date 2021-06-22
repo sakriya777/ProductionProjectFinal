@@ -25,7 +25,7 @@
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="Grade 12 Subjects"
                 android:textColor="@color/dark_blue"
-                android:textSize="30dp" />
+                android:textSize="30sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/g12sciencebtn"
@@ -45,14 +45,15 @@
                     android:paddingBottom="25dp"
                     android:text="SCIENCE"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="right"
                     android:paddingEnd="25dp"
-                    android:src="@drawable/science_application_60px" />
+                    android:src="@drawable/science_application_60px"
+                    android:contentDescription="TODO" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -73,14 +74,15 @@
                     android:paddingBottom="25dp"
                     android:text="ENGLISH"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="right"
                     android:paddingEnd="25dp"
-                    android:src="@drawable/verb_64px" />
+                    android:src="@drawable/verb_64px"
+                    android:contentDescription="TODO" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -101,14 +103,15 @@
                     android:paddingBottom="25dp"
                     android:text="SOCIAL STUDIES"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="right"
                     android:paddingEnd="25dp"
-                    android:src="@drawable/share_240px" />
+                    android:src="@drawable/share_240px"
+                    android:contentDescription="TODO" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -129,14 +132,15 @@
                     android:paddingBottom="25dp"
                     android:text="NEPALI"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="right"
                     android:paddingEnd="25dp"
-                    android:src="@drawable/ka" />
+                    android:src="@drawable/ka"
+                    android:contentDescription="TODO" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -157,14 +161,15 @@
                     android:paddingBottom="25dp"
                     android:text="MATHEMATICS"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="right"
                     android:paddingEnd="25dp"
-                    android:src="@drawable/sigma_52px" />
+                    android:src="@drawable/sigma_52px"
+                    android:contentDescription="TODO" />
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>

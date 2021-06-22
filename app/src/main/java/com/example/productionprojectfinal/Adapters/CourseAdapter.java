@@ -19,6 +19,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import org.jetbrains.annotations.NotNull;
 
+import timber.log.Timber;
+
 public class CourseAdapter extends FirebaseRecyclerAdapter<CourseModel, CourseAdapter.myViewHolder> {
 
     String grade, subject;
@@ -57,9 +59,6 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<CourseModel, CourseAd
             public void onClick(View v) {
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new LessonFragment(names, number, chap, grades, subjects)).addToBackStack(null).commit();
-
-                Log.i("Course Adapter", names);
-
             }
         });
     }

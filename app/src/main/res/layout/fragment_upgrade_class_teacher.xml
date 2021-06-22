@@ -6,54 +6,77 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     tools:context=".Fragments.Enroll.AddEnrollFragment">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enroll in a Class"
+        android:text="Upgrade Class Enroll"
         android:textSize="16sp"
         android:fontFamily="@font/spartan_regular"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/upgradeclassid"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="classid"
+        android:textSize="20sp"
+        android:layout_marginTop="35dp"/>
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/id"
+        android:id="@+id/upgradename"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Class ID"
-        android:layout_marginTop="250dp">
+        android:layout_below="@+id/upgradeclassid"
+        android:hint="Class Name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/classenrollid"
+            android:id="@+id/upgradeclassname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
+        android:id="@+id/upgradedescription"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/id"
+        android:layout_below="@+id/upgradename"
+        android:hint="Class Description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upgradeclassdescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/upgradepassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/upgradedescription"
         android:hint="@string/password"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/classenrollpassword"
+            android:id="@+id/upgradeclasspassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/enrollclass"
-        android:layout_below="@id/password"
+        android:id="@+id/upgradeclass"
+        android:layout_below="@id/upgradepassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@color/dark_blue"
-        android:text="Enroll class"/>
+        android:text="Upgrade class"/>
 
 
 </RelativeLayout>

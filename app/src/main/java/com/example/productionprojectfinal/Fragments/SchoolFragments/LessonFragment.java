@@ -47,9 +47,6 @@ public class LessonFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lesson, container, false);
 
-
-        Log.i("Lesson Fragment", names);
-
         RecyclerView recyclerView = view.findViewById(R.id.lessonrecycler);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
