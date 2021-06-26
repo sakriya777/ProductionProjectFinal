@@ -9,13 +9,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.productionprojectfinal.Fragments.OutSchool.OutSchoolFragmentScreen;
 import com.example.productionprojectfinal.Fragments.SchoolFragments.SchoolFragmentScreen;
 import com.example.productionprojectfinal.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class FirstScreenFragment extends Fragment {
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     CardView formalcardview, nonformalcardview;
     String role;
@@ -48,16 +52,22 @@ public class FirstScreenFragment extends Fragment {
             }
         });
 
-        nonformalcardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container, new OutSchoolFragmentScreen()).addToBackStack(null);
-                fragmentTransaction.commit();
-                fragmentTransaction.addToBackStack(null);
+        if (user==null){
+            Toast.makeText(getContext(), "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            nonformalcardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, new OutSchoolFragmentScreen()).addToBackStack(null);
+                    fragmentTransaction.commit();
+                    fragmentTransaction.addToBackStack(null);
 
-            }
-        });
+                }
+            });
+        }
+
     return v;
     }
 }

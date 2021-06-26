@@ -1,4 +1,4 @@
-plugins {
+    plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
 }
@@ -75,6 +75,8 @@ dependencies {
     // When NOT using the BoM, you must specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth:21.0.1'
 
-
+    //Video Meeting
     implementation ('org.jitsi.react:jitsi-meet-sdk:2.+') { transitive = true }
+
+    //Khalti transaction
 }

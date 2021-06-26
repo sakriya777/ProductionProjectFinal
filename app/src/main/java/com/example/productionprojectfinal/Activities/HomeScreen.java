@@ -131,7 +131,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                             quiz.setVisible(false);
                             school.setVisible(false);
                         }
-                        if (role.equals("Teacher")){
+                        if (role.equals("Teacher")) {
                             enroll.setTitle("Enroll");
                             quiz.setVisible(false);
                         }
@@ -239,8 +239,12 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
             finish();
         }
         if (item.getItemId() == R.id.profile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragmentScreen()).addToBackStack(null).commit();
-            drawerLayout.closeDrawers();
+            if (user == null) {
+                Toast.makeText(this, "Please Login/Register to Continue", Toast.LENGTH_SHORT).show();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragmentScreen()).addToBackStack(null).commit();
+                drawerLayout.closeDrawers();
+            }
         }
         return true;
     }
