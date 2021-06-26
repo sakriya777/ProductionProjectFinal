@@ -1,14 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/discussone"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragments.Enroll.EnrollDiscussion.SingleEnrollDiscussFragmentScreen">
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    app:cardCornerRadius="7dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/maindiscussion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/card_background_1"
+                    app:civ_border_color="#333652"
+                    app:civ_border_width="2dp"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="#898989" />
+
+
+                <TextView
+                    android:id="@+id/discussionowner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:text="Name"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-10dp"
+                    android:padding="10dp"
+                    android:text="About : " />
+
+                <TextView
+                    android:id="@+id/abouttext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-10dp"
+                    android:text="about" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/titletext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:padding="10dp"
+                android:text="Title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/discussiontext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:padding="10dp"
+                android:text="discussion material" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/addcomment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/maindiscussion"
+            android:layout_margin="5dp"
+            android:background="@color/light_white"
+            android:elevation="5dp"
+            android:padding="5dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:padding="10dp">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addacommentbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:background="@android:color/transparent"
+                    android:hint="Add a Comment" />
+
+                <ImageView
+                    android:id="@+id/addcommentbtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/paper_plane_60p_dark"
+                    android:contentDescription="TODO" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentrecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addcomment"
+            android:padding="20dp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

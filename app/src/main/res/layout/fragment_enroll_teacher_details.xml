@@ -134,6 +134,32 @@
         android:layout_marginBottom="10dp"
         android:elevation="5dp"
         app:cardCornerRadius="20dp"
+        android:id="@+id/enrolldiscussion">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:text="Discussion"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="250dp"
+            android:src="@drawable/arrow_forward"
+            android:contentDescription="TODO" />
+    </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="20dp"
         android:id="@+id/upgradeclass">
 
         <TextView

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.productionprojectfinal.Fragments.Enroll.EnrollDiscussion.EnrollDiscussFragment;
 import com.example.productionprojectfinal.Fragments.Quiz.QuizFragmentScreen;
 import com.example.productionprojectfinal.Models.QuizModel;
 import com.example.productionprojectfinal.R;
@@ -52,14 +53,15 @@ public class VideoCallOrQuizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_video_call_or_quiz, container, false);
-        CardView videomeet, quiz, quizcard;
+        CardView videomeet, quiz, discussion;
         videomeet = view.findViewById(R.id.videomeeting);
         quiz = view.findViewById(R.id.quizstart);
-        quizcard = view.findViewById(R.id.quizscorecard);
+        discussion = view.findViewById(R.id.discussionstudent);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userid;
 
         TextView quizscore = view.findViewById(R.id.displayscore);
+        AppCompatActivity activity = (AppCompatActivity) view.getContext();
 
         userid = user.getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("classes").child("results").child(classid);
@@ -135,7 +137,6 @@ public class VideoCallOrQuizFragment extends Fragment {
                         }
                     });
 
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     new AlertDialog.Builder(activity)
                             .setTitle("Confirmation")
                             .setMessage("You are About to start a Quiz Are you sure?")
@@ -156,6 +157,13 @@ public class VideoCallOrQuizFragment extends Fragment {
                 }
             });
         }
+
+        discussion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new EnrollDiscussFragment(classid)).addToBackStack(null).commit();
+            }
+        });
         return view;
     }
 }

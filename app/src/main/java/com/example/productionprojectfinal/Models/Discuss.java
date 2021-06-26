@@ -8,15 +8,8 @@ public class Discuss {
     String id;
     String postid;
 
-    public String getPostid() {
-        return postid;
+    public Discuss() {
     }
-
-    public void setPostid(String postid) {
-        this.postid = postid;
-    }
-
-
 
     public Discuss(String key, String about, String title, String discuss, String id, String postid) {
         this.key = key;
@@ -25,14 +18,6 @@ public class Discuss {
         this.discuss = discuss;
         this.id = id;
         this.postid = postid;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getKey() {
@@ -67,8 +52,19 @@ public class Discuss {
         this.discuss = discuss;
     }
 
-    public Discuss() {
+    public String getId() {
+        return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public String getPostid() {
+        return postid;
+    }
+
+    public void setPostid(String postid) {
+        this.postid = postid;
+    }
 }

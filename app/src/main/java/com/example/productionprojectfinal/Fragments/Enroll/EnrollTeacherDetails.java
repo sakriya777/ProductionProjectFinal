@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.productionprojectfinal.Fragments.Enroll.EnrollDiscussion.EnrollDiscussFragment;
 import com.example.productionprojectfinal.Fragments.Quiz.QuizFragmentScreen;
 import com.example.productionprojectfinal.Fragments.Quiz.TeacherQuizFragmentScreen;
 import com.example.productionprojectfinal.R;
@@ -42,7 +43,7 @@ public class EnrollTeacherDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_enroll_teacher_details, container, false);
-        CardView studentdetail, quizdetail, videocall, studentresult, upgradeclass, deleteclass;
+        CardView studentdetail, quizdetail, videocall, studentresult, upgradeclass, deleteclass, discussion;
 
         studentresult = view.findViewById(R.id.results);
         studentdetail = view.findViewById(R.id.studentdetails);
@@ -50,6 +51,8 @@ public class EnrollTeacherDetails extends Fragment {
         videocall = view.findViewById(R.id.videomeet);
         upgradeclass = view.findViewById(R.id.upgradeclass);
        //deleteclass = view.findViewById(R.id.deleteclass);
+        discussion = view.findViewById(R.id.enrolldiscussion);
+        AppCompatActivity activity = (AppCompatActivity) view.getContext();
 
         studentdetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +109,6 @@ public class EnrollTeacherDetails extends Fragment {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Toast.makeText(activity, "Upgrading", Toast.LENGTH_SHORT).show();
-                                AppCompatActivity activity = (AppCompatActivity) v.getContext();
                                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new UpgradeClassTeacher(classid)).addToBackStack(null).commit();
                             }
                         })
@@ -118,7 +120,12 @@ public class EnrollTeacherDetails extends Fragment {
                         }).show();
             }
         });
-
+        discussion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, new EnrollDiscussFragment(classid)).addToBackStack(null).commit();
+            }
+        });
 //        deleteclass.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
