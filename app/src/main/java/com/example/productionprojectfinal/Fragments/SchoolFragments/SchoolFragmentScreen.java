@@ -44,6 +44,7 @@ public class SchoolFragmentScreen extends Fragment {
 
         Button  adddata;
         adddata = v.findViewById(R.id.add_data);
+        adddata.setVisibility(View.GONE);
         adddata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
