@@ -252,7 +252,169 @@ public class DataBulkAdd extends AppCompatActivity {
                                         dbref.child(grade).child(sub).child("chapter" + num + "lesson").child("lesson" + lesson).setValue(lessons);
                                     }
                                     if (lesson == 2) {
-                                        String lesson1 = "As we know that, all of us live in a family where many families live together in a place it is called a neighborhood. In the same way, a group of family or people sharing a common understanding and often the same language, manners, tradition and law with each other is known as a community. We can not live alone because human beings are social animals. When we live in a community we can help each other to satisfy our needs which make our life comfortable and easier. Communities play a major role in the developments of societies and nations. They provide a program for people to come and exchange various ideas and experiences.Here, people of different occupation lives in a community some of them are pilot, teachers, doctors , engineers , farmers, tailors etc . Farmers work in the field and provide food for us, tailors make our dressed,Teachers give us the education whereas doctors check us when we are sick .In such way, we can help and co-operate with each other.Because of this, we can feel safer in a community than living alone . So, community plays an essential, role in our daily life . Simply from a community, we can learn a different culture, art , music , history, etc which are developed in the community. The community and its environment greatly influenced Language thought, and behaviors of the children. Community plays a major role in developing the mind of a child .Here.The government also plays a role in our life which helps to fulfill our demands and we can preserve our interest and rights.\n Society means the number of people living in a country, by honoring its laws and customs .On the basis of geography , religion , culture etc is formed by society. People lives in a society to satisfy each other needs.And also it consists of the people of different races, religions ages and classes .There are some similarity and difference between community and society .Community means a group of people living commonly, having some character in common but Society means the number of people living in a region, by accepting its laws and customs. The main difference between a community and a society is that a community is bound to a specific geographic location, but a society can be made up of the geographical boundary. community share common traits or interests whereas society honor and obey the pertinent laws and customs .Feeling of unity , attachment to each other, accountability , security , mutual understanding , etc the similarities found both in community and society .So community and society are equally essential for us.";
+                                        String lesson1 = "Here, it is clear that society begins to make progress since its beginning. Where it took a long period to take shape. There are several stages of development of society. They are given below:\n" +
+                                                "\n" +
+                                                "Hunting age\n" +
+                                                "\n" +
+                                                "In a backward society, like a wild animal human beings used to live in a forest. They used to live in\n" +
+                                                "\n" +
+                                                "caves at that time and for their foods they hunt animals. Which was not easy to hunt wild animals and even they had no concept of living in a house. Thatswhy, it was called Stone Age or Hunting age.\n" +
+                                                "\n" +
+                                                "Animal rearing age\n" +
+                                                "\n" +
+                                                "It was not easy to get animals to hunt. They had to wander far and wide in a course of hunting. Slowly as a time spend, rearing animals had been developed in them. So, instead of killing them they start to save animals. Now they had a less problem in getting food.And it was the Animal-rearing age. ";
+                                        HashMap<String, String> lessons = new HashMap<>();
+                                        lessons.put("name", lesso);
+                                        lessons.put("number", String.valueOf(lesson));
+                                        lessons.put("lesson", "lesson" + lesson);
+                                        lessons.put("content", lesson1);
+                                        dbref.child(grade).child(sub).child("chapter" + num + "lesson").child("lesson" + lesson).setValue(lessons);
+                                    }
+                                    if (lesson == 3) {
+                                        String lesson1 = "Our country Nepal is divided into five development region, 14 zones and 75 districts. All of them are a\n" +
+
+                                                "\n" +
+                                                "A political division which is made to develop all part of the country equally. Here, in our country “Village Development Committee is the smallest political system of our country which is created by the joining two or more than two villages to develop the village of our country. In each VDC there are 9 wards.The local body of a country is VDC.\n" +
+                                                "\n" +
+                                                "There is the provision of the composition of VDC in Local Self-Government Act 2055 BS . According to this act, there are 13 members altogether in the VDC. One from each Ward a VDC has composed one chairperson, one vice-chairperson and nine wards member. The vectors of that VDC are elected the chairperson and vice-chairperson. Here to be a vector, one must attain the age of 18 or above and resident of the concerned VDC. The respective wards of the VDC are elected the nine ward members. To be a candidate for the posts of chairperson, vice-chairperson and ward members the following qualification are needed: ";
+                                        HashMap<String, String> lessons = new HashMap<>();
+                                        lessons.put("name", lesso);
+                                        lessons.put("number", String.valueOf(lesson));
+                                        lessons.put("lesson", "lesson" + lesson);
+                                        lessons.put("content", lesson1);
+                                        dbref.child(grade).child(sub).child("chapter" + num + "lesson").child("lesson" + lesson).setValue(lessons);
+                                    }if (lesson == 4) {
+                                        String lesson1 = "We have already studied that to develop village areas VDCs are formed . In the same way, to develop urban areas municipality plays a vital role . A municipality is composed of a Mayor, Deputy Mayor, and nine or more ward chairpersons . Mayor is called the head of the municipality . For the term of five years, all the adult citizen of the municipality areas are elected. Our country has 99 municipalities at present.\n" +
+                                                "Types of Municipality\n" +
+                                                "\n" +
+                                                "Into three division municipalities in Nepal are classify on the basis of population , urban facilities and income of a city . They are\n" +
+                                                "\n" +
+                                                "    Municipality\n" +
+                                                "    Sub-Metropolitan city\n" +
+                                                "    Metropolitan city\n" +
+                                                "\n" +
+                                                "Municipality\n" +
+                                                "\n" +
+                                                "Government of Nepal can declare any urban area as a municipality which possesses the following requirements :\n" +
+                                                "\n" +
+                                                "    A minimum population of 20,000 ( for hilly regions 10000)\n" +
+                                                "    A minimum annual income of Rs. 5 lakhs\n" +
+                                                "    A semi-Urban area possessing electricity, transportation, drinking water, communication and similar other basic facilities.\n" +
+                                                "\n" +
+                                                "Sub-Metropolitan City\n" +
+                                                "\n" +
+                                                "A Sub-Metropolis should possess the following requirements:\n" +
+                                                "\n" +
+                                                "    A minimum population of 1 lakh\n" +
+                                                "    Minimum Annual Income of 10 crores\n" +
+                                                "    Facilities like electricity, drinking water, and communication\n" +
+                                                "    Main Road of a city is pitched\n" +
+                                                "    Facility of higher education and health service\n" +
+                                                "    Have minimum physical facilities for conducting national & international sports and games\n" +
+                                                "    Facilities like gardens, parks & city hall be available\n" +
+                                                "    Has already become Metropolis\n" +
+                                                "\n" +
+                                                "Metropolitan City\n" +
+                                                "\n" +
+                                                "A metropolitan city should possess the following requirements:\n" +
+                                                "\n" +
+                                                "    A minimum population of 3 lakhs\n" +
+                                                "    A minimum annual income of 400 million\n" +
+                                                "    Facilities like electricity, drinking water, and communication\n" +
+                                                "    Main Road and other link roads are pitched\n" +
+                                                "    Availability of special health services like hospital, medical college etc.\n" +
+                                                "    Has physical facilities for conducting international sports and games\n" +
+                                                "    Sufficient opportunities are available for higher education with at least one university\n" +
+                                                "    Has already become sub-metropolis\n" +
+                                                "\n" +
+                                                "Municipal Ward Committee\n" +
+                                                "Each municipal area has been divided into a certain number of wards on the basis of geographical situations and population. At present, the minimum number of wards are 9 and maximum of 35. Award committee is formed in each ward which consists of the members elected by the adult citizen of the country living in the concerned ward. There shall be award chairperson, a woman ward member and three other ward members in the ward committee.\n" +
+                                                "\n" +
+                                                "Municipal Assembly\n" +
+                                                "Every municipality there is a Municipal Assembly which is formed to create a plan, policy and give the budget of a municipality. Following are the members of this Assembly:\n" +
+                                                "\n" +
+                                                "    A Mayor, Deputy-Mayor of the municipality .\n" +
+                                                "    Ward chairperson, women ward member and ward members of each ward.\n" +
+                                                "    Six to 20 members with at least 40% women are nominated by the Municipal Assembly from socially and economically disadvantaged classes, social workers, suppressed tribal and aborigine communities who are qualified but not represented in Municipal Assembly.\n" +
+                                                "\n" +
+                                                "Power and Functions of Municipality\n" +
+                                                "\n" +
+                                                "To develop urban areas municipality is formed and here, it plays an important role.The municipality is entrusted with several responsibilities and duties. Functions of municipality are given below :\n" +
+                                                "\n" +
+                                                "    To prepare the annual budget, plans and programmes of the municipality .\n" +
+                                                "    provide development in education through the establishment of primary schools,libraries providing scholarships to needy students and conducting adult education and non-formal education.\n" +
+                                                "    providing encourage and develop spots through various programmes.And also to preserve and protect cultural and religious heritage .\n" +
+                                                "    To implement plans and programmes relating to water supply, drainage, providing entertainment such as parks, gardens, playgrounds and public halls. etc.\n" +
+                                                "    To the establishment of general hospitals, health centres, health post-Ayurvedic dispensaries and to run programmes concerning family planning mother-child welfare, public health etc.\n" +
+                                                "    To run programmes based on social welfare like helping women , orphans , disabled and destitute children based on rehabilitation.\n";
+                                        HashMap<String, String> lessons = new HashMap<>();
+                                        lessons.put("name", lesso);
+                                        lessons.put("number", String.valueOf(lesson));
+                                        lessons.put("lesson", "lesson" + lesson);
+                                        lessons.put("content", lesson1);
+                                        dbref.child(grade).child(sub).child("chapter" + num + "lesson").child("lesson" + lesson).setValue(lessons);
+                                    }if (lesson == 5) {
+                                        String lesson1 = "Importance\n" +
+                                                "\n" +
+                                                "Education is important in life because it gives people the skills and tools they need to navigate the world. Education is a single and very important part of the individual development and the development of the nation.Education also influences people about the world in which they live, including information about history, philosophy, and culture. It also benefits in making the other people around him/her knowledgeable too .Many people believe that education is important in life for reasons behind basic survival ability. Eleanor Roosevelt famously said that education is essential to good citizenship and that education is important to everyone because it enables people to contribute to their community and their country. It also implements their learning into practical life.In this way, a community, a society, and a nation progress. Thus, education is necessary for the development of a country.\n" +
+                                                "\n" +
+                                                "Abroad Studies Opportunities\n" +
+                                                "\n" +
+                                                "Here, citizens are the most important resource of any country. But they need to be well educated, trained and encourage to carry out various works. Educations promote awareness and awareness present to all rounded development.A country can not well developed without education it can not progress at all. There is no lack of skilled and trained human resource where the literacy rate is very high achievement depends on the skillful and active human resources that resources are provided by education .\n" +
+                                                "\n" +
+                                                "Education in the past\n" +
+                                                "\n" +
+                                                "There was no formal educational instruction like schools and university but education is started in Nepal\n" +
+                                                "\n" +
+                                                "since ancient times.From their parent's children get occupation skills, social norms, and values.Ashram, Gumbas, Bihar etc. is a religious institution where education was imparted.Durbar High School has established in 1910 BS by Junga Bahadur Rana who took the initial step towards the formal English education.To make a life easy the country require a good doctors, teachers, engineers, farmers, researchers etc.The government has been putting an effort to make education available to all because of the low literacy rate of Nepal.The Government has initiated both formal and non-formal education in the country.A country has established five universities, several schools, and colleges which provide formal education.The non-formal education is managed as follows;\n" +
+                                                "\n" +
+                                                "    Education for the children who are not able to go school.\n" +
+                                                "    Education for the aged people who is uneducated.\n" +
+                                                "    Skilled based education for the women to increase their income.\n" +
+                                                "    Special education for physically challenged, visually impaired, etc.\n";
+                                        HashMap<String, String> lessons = new HashMap<>();
+                                        lessons.put("name", lesso);
+                                        lessons.put("number", String.valueOf(lesson));
+                                        lessons.put("lesson", "lesson" + lesson);
+                                        lessons.put("content", lesson1);
+                                        dbref.child(grade).child(sub).child("chapter" + num + "lesson").child("lesson" + lesson).setValue(lessons);
+                                    }if (lesson == 6) {
+                                        String lesson1 = "Our Infrastructure of Development:Health\n" +
+                                                "\n" +
+                                                "One of the essential infrastructures of development is health.In a simple meaning being physically\n" +
+                                                "\n" +
+                                                "and mentally fit is known as the health.According to the definition of World Health Organization (WHO), \"Health is the state of complete physical,mental, and social well-being and not merely the absence of diseases or infirmity\".\n" +
+                                                "\n" +
+                                                "Importance\n" +
+                                                "\n" +
+                                                "As we know,health is essential for us even more than gold and diamond.A famous philosopher Josh Billings “Health is like money, we never have a true idea of its value until we lose it\".So, the main intention of our life is to be healthy and happy.There is also saying that \"Health is Wealth.\" Which means a healthy person can think better, perform better, contribute more towards the development of the country.A famous Greek philosopher Aristotle has rightly said: \"A healthy mind exists in a healthy body\". country.The development of a country depends on the health of its citizens.following measures should take to remain healthy are:\n" +
+                                                "\n" +
+                                                "\n" +
+                                                "    Keep your surrounding clean.\n" +
+                                                "    Have a clean and safe drinking water.\n" +
+                                                "    Eat a balanced diet containing vitamins, proteins,minerals etc.\n" +
+                                                "    Avoid harmful habits of smoking,taking drugs and alcohol, etc.\n" +
+                                                "    keeping yourself physically fit by exercise.\n" +
+                                                "\n" +
+                                                "Problems in health sector of Nepal\n" +
+                                                "\n" +
+                                                "Major problems in health sector of Nepal are as follows:\n" +
+                                                "\n" +
+                                                "    In a ruler area, a government has not been able to operate hospitals and manage doctors as wellSource:healthaffairs.org Fig: Health\n" +
+                                                "\n" +
+                                                "    as necessary tools,equipment, and medicines.\n" +
+                                                "    There are no such health services in the remote areas because of the lack of facilities doctors are not interested in working there.\n" +
+                                                "    Instead of going to doctors people prefer to go to witch doctors (Dhamijhankri).\n" +
+                                                "    It is because due to the lack of education and awareness in remote areas.Also, can not even pay for doctor fee.\n" +
+                                                "\n" +
+                                                " \n" +
+                                                "\n" +
+                                                "Solutions\n" +
+                                                "\n" +
+                                                "    In rural areas,awareness program should launch by Government and non-government organization.\n" +
+                                                "    In all parts of the country health posts and health centres should be established.And doctors are to be motivated to go to the remote areas.\n" +
+                                                "    Mobile health camps should be conducted and blood donation programmes.\n" +
+                                                "    Health education should be made compulsory in a school curriculum.\n";
                                         HashMap<String, String> lessons = new HashMap<>();
                                         lessons.put("name", lesso);
                                         lessons.put("number", String.valueOf(lesson));
@@ -353,15 +515,14 @@ public class DataBulkAdd extends AppCompatActivity {
                                     lesson = lesson + 1;
                                 }
                             }
-
-
                             num = num + 1;
                         }
 
                     }
 
                 }
-            } else if (grade.equals("grade7")) {
+            }
+            else if (grade.equals("grade7")) {
                 for (String sub : subjects) {
                     if (sub.equals("english")) {
                         int num = 1;
@@ -425,7 +586,8 @@ public class DataBulkAdd extends AppCompatActivity {
                     }
 
                 }
-            } else if (grade.equals("grade8")) {
+            }
+            else if (grade.equals("grade8")) {
                 for (String sub : subjects) {
                     if (sub.equals("english")) {
                         int num = 1;
@@ -489,7 +651,8 @@ public class DataBulkAdd extends AppCompatActivity {
                     }
 
                 }
-            } else if (grade.equals("grade9")) {
+            }
+            else if (grade.equals("grade9")) {
                 for (String sub : subjects) {
                     if (sub.equals("english")) {
                         int num = 1;
@@ -553,7 +716,8 @@ public class DataBulkAdd extends AppCompatActivity {
                     }
 
                 }
-            } else if (grade.equals("grade10")) {
+            }
+            else if (grade.equals("grade10")) {
                 for (String sub : subjects) {
                     if (sub.equals("english")) {
                         int num = 1;
@@ -617,7 +781,8 @@ public class DataBulkAdd extends AppCompatActivity {
                     }
 
                 }
-            } else if (grade.equals("grade11")) {
+            }
+            else if (grade.equals("grade11")) {
                 for (String sub : subjects) {
                     if (sub.equals("english")) {
                         int num = 1;
